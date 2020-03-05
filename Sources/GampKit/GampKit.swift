@@ -1,3 +1,3 @@
 struct GampKit {
-    var text = "Hello, World!"
+  var text = "Hello, World!"
 }
