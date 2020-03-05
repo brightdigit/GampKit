@@ -1,0 +1,16 @@
+PODS:
+  - GampKit (0.0.1)
+
+DEPENDENCIES:
+  - GampKit (from `../`)
+
+EXTERNAL SOURCES:
+  GampKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GampKit: baeec4bfc4ed93efa2308b89a7af707e17371e77
+
+PODFILE CHECKSUM: 5dcc53692faecd7663ac5f9f09894886c088ec05
+
+COCOAPODS: 1.8.4
