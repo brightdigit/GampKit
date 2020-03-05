@@ -68,10 +68,10 @@ Lorem Description
   # spec.platform     = :ios, "5.0"
 
   #  When using multiple platforms
-  # spec.ios.deployment_target = "8.0"
-  # spec.osx.deployment_target = "10.9"
-  # spec.watchos.deployment_target = "2.0"
-  # spec.tvos.deployment_target = "9.0"
+  spec.ios.deployment_target = "8.0"
+  spec.osx.deployment_target = "10.9"
+  spec.watchos.deployment_target = "2.0"
+  spec.tvos.deployment_target = "9.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -80,7 +80,7 @@ Lorem Description
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/brightdigit/GampKit.git", :commit => "e697c1020a00fb79a2f51121fe11931156c092e5" }
+  spec.source       = { :git => "https://github.com/brightdigit/GampKit.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
