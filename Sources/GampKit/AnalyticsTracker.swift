@@ -1,17 +1,17 @@
 import Foundation
 
 public struct AnalyticsTracker: AnalyticsTrackerProtocol {
-  public func track(error: Error, isFatal: Bool) {
+  public func track(error: Error, isFatal: Bool, _ callback: @escaping ((Error?) -> Void)) {
     var parameters = configuration.parameters
 
     parameters[.hitType] = AnalyticsHitType.exception
     parameters[.exceptionDescription] = error.localizedDescription
     parameters[.exceptionFatal] = isFatal ? 1 : 0
 
-    sessionManager.send(parameters)
+    sessionManager.send(parameters, callback)
   }
 
-  public func track(event: AnalyticsEventProtocol) {
+  public func track(event: AnalyticsEventProtocol, _ callback: @escaping ((Error?) -> Void)) {
     var parameters = configuration.parameters
 
     parameters[.hitType] = AnalyticsHitType.event
@@ -26,7 +26,7 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
       parameters[.eventValue] = value
     }
 
-    sessionManager.send(parameters)
+    sessionManager.send(parameters, callback)
   }
 
   let configuration: AnalyticsConfigurationProtocol
@@ -36,7 +36,8 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
     time: TimeInterval,
     withCategory category: String,
     withVariable variable: String,
-    withLabel label: String?
+    withLabel label: String?,
+    _ callback: @escaping ((Error?) -> Void)
   ) {
     var parameters = configuration.parameters
 
@@ -49,6 +50,6 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
       parameters[.userTimingLabel] = label
     }
 
-    sessionManager.send(parameters)
+    sessionManager.send(parameters, callback)
   }
 }
