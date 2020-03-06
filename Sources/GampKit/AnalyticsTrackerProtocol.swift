@@ -9,11 +9,11 @@ public protocol AnalyticsTrackerProtocol {
 }
 
 #if !os(Linux)
-public extension AnalyticsTrackerProtocol {
-  func track(exception: NSException) {
-    track(error: exception, isFatal: true)
+  public extension AnalyticsTrackerProtocol {
+    func track(exception: NSException) {
+      track(error: exception, isFatal: true)
+    }
   }
-}
 
-extension NSException: Error {}
+  extension NSException: Error {}
 #endif

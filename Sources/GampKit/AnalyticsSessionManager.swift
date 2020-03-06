@@ -8,7 +8,7 @@
 import Foundation
 
 #if canImport(FoundationNetworking)
-import FoundationNetworking
+  import FoundationNetworking
 #endif
 
 public struct AnalyticsSessionManager: AnalyticsSessionManagerProtocol {
