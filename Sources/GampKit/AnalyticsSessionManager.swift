@@ -7,6 +7,10 @@
 //
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public struct AnalyticsSessionManager: AnalyticsSessionManagerProtocol {
   #if DEBUG
     public static let defaultBaseUrl = URL(string: "https://www.google-analytics.com/debug/collect")!

@@ -8,6 +8,7 @@ public protocol AnalyticsTrackerProtocol {
   func track(error: Error, isFatal: Bool)
 }
 
+#if !os(Linux)
 public extension AnalyticsTrackerProtocol {
   func track(exception: NSException) {
     track(error: exception, isFatal: true)
@@ -15,3 +16,4 @@ public extension AnalyticsTrackerProtocol {
 }
 
 extension NSException: Error {}
+#endif
