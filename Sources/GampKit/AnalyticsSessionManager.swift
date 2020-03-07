@@ -11,8 +11,8 @@ import Foundation
   import FoundationNetworking
 #endif
 
-public struct AnalyticsSessionManager: AnalyticsSessionManagerProtocol {
-  public let session: URLSession
+public struct AnalyticsSessionManager<SessionType : Session>: AnalyticsSessionManagerProtocol {
+  public let session: SessionType
   public let requestBuilder: AnalyticsRequestBuilderProtocol
 
 //  #warning("Remove static function")
@@ -29,24 +29,25 @@ public struct AnalyticsSessionManager: AnalyticsSessionManagerProtocol {
 //    return URLSession(configuration: configuration, delegate: delegate, delegateQueue: queue)
 //  }
 
-  public init(session: URLSession? = nil, requestBuilder: AnalyticsRequestBuilderProtocol? = nil) {
-    self.session = session ?? URLSession.shared
+  public init(session: SessionType, requestBuilder: AnalyticsRequestBuilderProtocol? = nil) {
+    self.session = session
     self.requestBuilder = requestBuilder ?? AnalyticsRequestBuilder()
   }
 
   public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void)) {
-    let request = requestBuilder.request(withParameters: parameters)
-    let dataTask = session.dataTask(with: request, completionHandler: { data, _, _ in
-      if let data = data {
-        #if DEBUG
-          if let text = String(data: data, encoding: .utf8) {
-            debugPrint(text)
-          }
-        #endif
-      }
-      callback(nil)
-    })
-
-    dataTask.resume()
+    let request = requestBuilder.request(forSession: self.session, withParameters: parameters)
+    session.begin(request: request, callback)
+//    let dataTask = session.dataTask(with: request, completionHandler: { data, _, _ in
+//      if let data = data {
+//        #if DEBUG
+//          if let text = String(data: data, encoding: .utf8) {
+//            debugPrint(text)
+//          }
+//        #endif
+//      }
+//      callback(nil)
+//    })
+//
+//    dataTask.resume()
   }
 }

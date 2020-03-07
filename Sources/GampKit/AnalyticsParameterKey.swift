@@ -1,4 +1,4 @@
-public enum AnalyticsParameterKey: String {
+public enum AnalyticsParameterKey: String, CaseIterable {
   case hitType = "t", version = "v", trackingId = "tid",
     userTimingCategory = "utc", userTimingLabel = "utl", timing = "utt", clientId = "cid",
     userTimingVariable = "utv",
