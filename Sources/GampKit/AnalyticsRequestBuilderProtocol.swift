@@ -18,7 +18,7 @@ public protocol Session {
 
 public protocol Request {
   var body : Data? { get set }
-  var method : RequestMethod { get set }
+  var method : RequestMethod? { get set }
 }
 public protocol AnalyticsRequestBuilderProtocol {
   func request<SessionType : Session, RequestType>(forSession session: SessionType, withParameters parameters: AnalyticsParameterDictionary) -> RequestType  where SessionType.RequestType == RequestType

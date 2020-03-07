@@ -1,15 +1,21 @@
 @testable import GampKit
 import XCTest
 
-final class AnalyticsParameterEncoderTests: XCTestCase {
-  func testEncode() {
-    let encoder = AnalyticsParameterEncoder()
+extension AnalyticsParameterDictionary {
+  static func random() -> Self {
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    let dictionary = AnalyticsParameterKey.allCases.reduce(AnalyticsParameterDictionary()) { (dictionary, key) -> AnalyticsParameterDictionary in
+    return AnalyticsParameterKey.allCases.reduce(AnalyticsParameterDictionary()) { (dictionary, key) -> AnalyticsParameterDictionary in
       var result = dictionary
       result[key] = Bool.random() ? Int.random(in: 1...100) : String(letters.shuffled())
       return result
     }
+  }
+}
+
+final class AnalyticsParameterEncoderTests: XCTestCase {
+  func testEncode() {
+    let encoder = AnalyticsParameterEncoder()
+    let dictionary = AnalyticsParameterDictionary.random()
     guard let data = encoder.encode(parameters: dictionary) else {
       XCTFail("No data from encoder.")
       return
