@@ -6,7 +6,7 @@ extension AnalyticsParameterDictionary {
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     return AnalyticsParameterKey.allCases.reduce(AnalyticsParameterDictionary()) { (dictionary, key) -> AnalyticsParameterDictionary in
       var result = dictionary
-      result[key] = Bool.random() ? Int.random(in: 1...100) : String(letters.shuffled())
+      result[key] = Bool.random() ? Int.random(in: 1 ... 100) : String(letters.shuffled())
       return result
     }
   }
@@ -24,11 +24,11 @@ final class AnalyticsParameterEncoderTests: XCTestCase {
       XCTFail("Couldn't decode data into string.")
       return
     }
-    
-    let pairs = text.components(separatedBy: "&").map{
+
+    let pairs = text.components(separatedBy: "&").map {
       $0.components(separatedBy: "=")
     }
-    
+
     for pair in pairs {
       guard let keyString = pair.first, let valueString = pair.last, pair.count == 2 else {
         XCTFail("Invalid pair: \(pair)")

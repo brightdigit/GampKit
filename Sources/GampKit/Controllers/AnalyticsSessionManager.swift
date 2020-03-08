@@ -11,7 +11,7 @@ import Foundation
   import FoundationNetworking
 #endif
 
-public struct AnalyticsSessionManager<SessionType : Session>: AnalyticsSessionManagerProtocol {
+public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionManagerProtocol {
   public let session: SessionType
   public let requestBuilder: AnalyticsRequestBuilderProtocol
 
@@ -35,7 +35,7 @@ public struct AnalyticsSessionManager<SessionType : Session>: AnalyticsSessionMa
   }
 
   public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void)) {
-    let request = requestBuilder.request(forSession: self.session, withParameters: parameters)
+    let request = requestBuilder.request(forSession: session, withParameters: parameters)
     session.begin(request: request, callback)
 //    let dataTask = session.dataTask(with: request, completionHandler: { data, _, _ in
 //      if let data = data {
