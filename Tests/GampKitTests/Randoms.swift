@@ -1,4 +1,4 @@
-// import UIKit
+// swiftlint:disable all
 import Foundation
 
 // each type has its own random
@@ -307,3 +307,5 @@ public struct Randoms {
 //        Randoms.createGravatar(options.randomElement()!, size: size, completion: completion)
 //    }
 }
+
+// swiftlint:enable all

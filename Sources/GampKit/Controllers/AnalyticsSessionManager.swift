@@ -15,20 +15,6 @@ public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionMan
   public let session: SessionType
   public let requestBuilder: AnalyticsRequestBuilderProtocol
 
-//  #warning("Remove static function")
-//  public static func createSession(
-//    withDelegate delegate: URLSessionDelegate? = nil,
-//    inQueue queue: OperationQueue? = nil,
-//    withUserAgent userAgent: String? = nil
-//  ) -> URLSession {
-//    let configuration = URLSessionConfiguration.ephemeral
-//    configuration.httpMaximumConnectionsPerHost = 1
-//    if let userAgent = userAgent {
-//      configuration.httpAdditionalHeaders = ["User-Agent": userAgent]
-//    }
-//    return URLSession(configuration: configuration, delegate: delegate, delegateQueue: queue)
-//  }
-
   public init(session: SessionType, requestBuilder: AnalyticsRequestBuilderProtocol? = nil) {
     self.session = session
     self.requestBuilder = requestBuilder ?? AnalyticsRequestBuilder()
@@ -37,17 +23,5 @@ public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionMan
   public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void)) {
     let request = requestBuilder.request(forSession: session, withParameters: parameters)
     session.begin(request: request, callback)
-//    let dataTask = session.dataTask(with: request, completionHandler: { data, _, _ in
-//      if let data = data {
-//        #if DEBUG
-//          if let text = String(data: data, encoding: .utf8) {
-//            debugPrint(text)
-//          }
-//        #endif
-//      }
-//      callback(nil)
-//    })
-//
-//    dataTask.resume()
   }
 }

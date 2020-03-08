@@ -22,5 +22,8 @@ public protocol Request {
 }
 
 public protocol AnalyticsRequestBuilderProtocol {
-  func request<SessionType: Session, RequestType>(forSession session: SessionType, withParameters parameters: AnalyticsParameterDictionary) -> RequestType where SessionType.RequestType == RequestType
+  func request<SessionType: Session, RequestType>(
+    forSession session: SessionType,
+    withParameters parameters: AnalyticsParameterDictionary
+  ) -> RequestType where SessionType.RequestType == RequestType
 }

@@ -1,7 +1,13 @@
 import Foundation
 
 public protocol AnalyticsTrackerProtocol {
-  func track(time: TimeInterval, withCategory category: String, withVariable variable: String, withLabel label: String?, _ callback: @escaping ((Error?) -> Void))
+  func track(
+    time: TimeInterval,
+    withCategory category: String,
+    withVariable variable: String,
+    withLabel label: String?,
+    _ callback: @escaping ((Error?) -> Void)
+  )
 
   func track(event: AnalyticsEventProtocol, _ callback: @escaping ((Error?) -> Void))
 
