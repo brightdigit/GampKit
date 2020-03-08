@@ -7,20 +7,20 @@ public protocol AnalyticsTrackerProtocol
 ```
 
 ## Methods
-### `track(time:withCategory:withVariable:withLabel:)`
+### `track(time:withCategory:withVariable:withLabel:_:)`
 
 ```swift
-func track(time: TimeInterval, withCategory category: String, withVariable variable: String, withLabel label: String?)
+func track(
 ```
 
-### `track(event:)`
+### `track(event:_:)`
 
 ```swift
-func track(event: AnalyticsEventProtocol)
+func track(event: AnalyticsEventProtocol, _ callback: @escaping ((Error?) -> Void))
 ```
 
-### `track(error:isFatal:)`
+### `track(error:isFatal:_:)`
 
 ```swift
-func track(error: Error, isFatal: Bool)
+func track(error: Error, isFatal: Bool, _ callback: @escaping ((Error?) -> Void))
 ```

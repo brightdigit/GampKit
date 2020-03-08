@@ -3,7 +3,7 @@
 # `AnalyticsParameterKey`
 
 ```swift
-public enum AnalyticsParameterKey: String
+public enum AnalyticsParameterKey: String, CaseIterable
 ```
 
 ## Cases
