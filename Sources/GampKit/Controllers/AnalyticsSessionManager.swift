@@ -7,10 +7,6 @@
 //
 import Foundation
 
-#if canImport(FoundationNetworking)
-  import FoundationNetworking
-#endif
-
 public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionManagerProtocol {
   public let session: SessionType
   public let requestBuilder: AnalyticsRequestBuilderProtocol

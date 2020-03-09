@@ -1,30 +1,34 @@
 import Foundation
+
+/**
+ Builds a analytics request based on the session.
+ */
 public struct AnalyticsRequestBuilder: AnalyticsRequestBuilderProtocol {
-  public let baseURL: URL
-  public let cachePolicy: CachePolicy
   public let parameterEncoder: AnalyticsParameterEncoderProtocol
-  public let timeoutInterval: TimeInterval
 
   public init(
-    baseURL: URL? = nil,
-    cachePolicy: CachePolicy = .useProtocolCachePolicy,
-    parameterEncoder: AnalyticsParameterEncoderProtocol? = nil,
-    timeoutInterval: TimeInterval = 5.0
+    parameterEncoder: AnalyticsParameterEncoderProtocol? = nil
   ) {
-    self.baseURL = baseURL ?? AnalyticsURLs.default
+    // self.baseURL = baseURL ?? AnalyticsURLs.default
     self.parameterEncoder = parameterEncoder ?? AnalyticsParameterEncoder()
-    self.cachePolicy = cachePolicy
-    self.timeoutInterval = timeoutInterval
+    // self.cachePolicy = cachePolicy
+    // self.timeoutInterval = timeoutInterval
   }
 
+  /**
+   Builds a analytics request based on the session and parameters.
+
+   - Parameter session: The session to build the request for.
+   - Parameter parameters: A dictionary of parameters for the analytics request.
+
+   */
   public func request<SessionType, RequestType>(
     forSession session: SessionType,
     withParameters parameters: AnalyticsParameterDictionary
   ) throws -> RequestType where SessionType: Session, RequestType == SessionType.RequestType {
-    var request = session.request(withURL: baseURL, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
+    var request = session.request()
 
     request.body = try parameterEncoder.encode(parameters: parameters)
-    request.method = .post
     return request
   }
 }

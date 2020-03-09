@@ -9,6 +9,6 @@ struct MockRequestBuilder: AnalyticsRequestBuilderProtocol {
     if let error = self.error {
       throw error
     }
-    return session.request(withURL: .random(), cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 5.0)
+    return session.request()
   }
 }

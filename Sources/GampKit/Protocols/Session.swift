@@ -5,6 +5,6 @@ import Foundation
 
 public protocol Session {
   associatedtype RequestType: Request
-  func request(withURL url: URL, cachePolicy: CachePolicy, timeoutInterval: TimeInterval) -> RequestType
+  func request() -> RequestType
   func begin(request: RequestType, _ completion: @escaping ((Error?) -> Void))
 }
