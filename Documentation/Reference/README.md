@@ -11,6 +11,8 @@
 -   [AnalyticsTrackerProtocol](protocols/AnalyticsTrackerProtocol.md)
 -   [Request](protocols/Request.md)
 -   [Session](protocols/Session.md)
+-   [URLSessionable](protocols/URLSessionable.md)
+-   [URLSessionableDataTask](protocols/URLSessionableDataTask.md)
 
 ## Structs
 
@@ -40,6 +42,7 @@
 -   [AnalyticsTrackerProtocol](extensions/AnalyticsTrackerProtocol.md)
 -   [NSException](extensions/NSException.md)
 -   [URLRequest](extensions/URLRequest.md)
+-   [URLSession](extensions/URLSession.md)
 
 # Reference Documentation
 This reference documentation was generated with

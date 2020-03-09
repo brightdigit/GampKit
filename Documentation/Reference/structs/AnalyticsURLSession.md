@@ -24,7 +24,7 @@ public let cachePolicy: URLRequest.CachePolicy
 ### `session`
 
 ```swift
-public let session: URLSession
+public let session: URLSessionable
 ```
 
 ### `timeoutInterval`
