@@ -3,5 +3,6 @@ import XCTest
 import GampKitTests
 
 var tests = [XCTestCaseEntry]()
-tests += GampKitTests.allTests()
+tests += GampKitTests.__allTests()
+
 XCTMain(tests)

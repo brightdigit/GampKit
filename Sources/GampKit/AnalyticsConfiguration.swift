@@ -20,15 +20,15 @@ public struct AnalyticsConfiguration: AnalyticsConfigurationProtocol {
     trackingIdentifier: String,
     applicationName: String,
     applicationVersion: String,
+    clientIdentifier: String,
     customParameters: AnalyticsParameterDictionary? = nil,
-    clientIdentifierDelegate: ClientIdentifierProtocol? = nil,
     userLanguage: String? = nil
   ) {
     self.trackingIdentifier = trackingIdentifier
     self.applicationVersion = applicationVersion
     self.applicationName = applicationName
+    self.clientIdentifier = clientIdentifier
     self.userLanguage = userLanguage ?? Locale.preferredLanguages.first
-    clientIdentifier = clientIdentifierDelegate?.clientIdentifier ?? ClientIdentifier.shared.clientIdentifier
     self.customParameters = customParameters ?? AnalyticsParameterDictionary()
   }
 }

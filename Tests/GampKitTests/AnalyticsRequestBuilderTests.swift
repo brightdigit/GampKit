@@ -1,55 +1,8 @@
 @testable import GampKit
 import XCTest
 
-class MockRequest: Request {
-  let url: URL
-  let cachePolicy: CachePolicy
-  let timeoutInterval: TimeInterval
-  var body: Data?
 
-  var sent: Bool = false
-  var method: RequestMethod?
-  var actualError: Error?
 
-  init(url: URL, cachePolicy: CachePolicy, timeoutInterval: TimeInterval, body: Data?, method: RequestMethod?, actualError: Error?) {
-    self.url = url
-    self.cachePolicy = cachePolicy
-    self.timeoutInterval = timeoutInterval
-    self.body = body
-    self.method = method
-    self.actualError = actualError
-  }
-}
-
-struct MockSession: Session {
-  let actualError: Error?
-  func request(withURL url: URL, cachePolicy: CachePolicy, timeoutInterval: TimeInterval) -> MockRequest {
-    return MockRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval, body: nil, method: nil, actualError: actualError)
-  }
-
-  func begin(request: MockRequest, _ completion: @escaping ((Error?) -> Void)) {
-    request.sent = true
-
-    completion(request.actualError)
-  }
-
-  typealias RequestType = MockRequest
-
-  init(error: Error? = nil) {
-    actualError = error
-  }
-}
-
-extension AnalyticsParameterKey: Codable {}
-
-struct MockParameterEncoder: AnalyticsParameterEncoderProtocol {
-  let encoder = JSONEncoder()
-  func encode(parameters: AnalyticsParameterDictionary) -> Data? {
-    return try? encoder.encode(parameters.mapValues {
-      String(describing: $0)
-    })
-  }
-}
 
 final class AnalyticsRequestBuilderTests: XCTestCase {
   func testRequest() {
