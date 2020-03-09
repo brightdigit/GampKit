@@ -23,6 +23,7 @@
 -   [AnalyticsTiming](structs/AnalyticsTiming.md)
 -   [AnalyticsTracker](structs/AnalyticsTracker.md)
 -   [AnalyticsURLs](structs/AnalyticsURLs.md)
+-   [StringEncodingError](structs/StringEncodingError.md)
 
 ## Enums
 

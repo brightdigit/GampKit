@@ -49,5 +49,5 @@ public init(
 public func request<SessionType, RequestType>(
   forSession session: SessionType,
   withParameters parameters: AnalyticsParameterDictionary
-) -> RequestType where SessionType: Session, RequestType == SessionType.RequestType
+) throws -> RequestType where SessionType: Session, RequestType == SessionType.RequestType
 ```
