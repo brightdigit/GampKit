@@ -12,9 +12,3 @@ public protocol Request
 ```swift
 var body: Data?
 ```
-
-### `method`
-
-```swift
-var method: RequestMethod?
-```

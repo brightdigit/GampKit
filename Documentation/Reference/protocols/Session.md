@@ -7,10 +7,10 @@ public protocol Session
 ```
 
 ## Methods
-### `request(withURL:cachePolicy:timeoutInterval:)`
+### `request()`
 
 ```swift
-func request(withURL url: URL, cachePolicy: CachePolicy, timeoutInterval: TimeInterval) -> RequestType
+func request() -> RequestType
 ```
 
 ### `begin(request:_:)`

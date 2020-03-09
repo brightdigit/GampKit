@@ -6,40 +6,21 @@
 public struct AnalyticsRequestBuilder: AnalyticsRequestBuilderProtocol
 ```
 
+> Builds a analytics request based on the session.
+
 ## Properties
-### `baseURL`
-
-```swift
-public let baseURL: URL
-```
-
-### `cachePolicy`
-
-```swift
-public let cachePolicy: CachePolicy
-```
-
 ### `parameterEncoder`
 
 ```swift
 public let parameterEncoder: AnalyticsParameterEncoderProtocol
 ```
 
-### `timeoutInterval`
-
-```swift
-public let timeoutInterval: TimeInterval
-```
-
 ## Methods
-### `init(baseURL:cachePolicy:parameterEncoder:timeoutInterval:)`
+### `init(parameterEncoder:)`
 
 ```swift
 public init(
-  baseURL: URL? = nil,
-  cachePolicy: CachePolicy = .useProtocolCachePolicy,
-  parameterEncoder: AnalyticsParameterEncoderProtocol? = nil,
-  timeoutInterval: TimeInterval = 5.0
+  parameterEncoder: AnalyticsParameterEncoderProtocol? = nil
 )
 ```
 
@@ -51,3 +32,15 @@ public func request<SessionType, RequestType>(
   withParameters parameters: AnalyticsParameterDictionary
 ) throws -> RequestType where SessionType: Session, RequestType == SessionType.RequestType
 ```
+
+> Builds a analytics request based on the session and parameters.
+>
+> - Parameter session: The session to build the request for.
+> - Parameter parameters: A dictionary of parameters for the analytics request.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| session | The session to build the request for. |
+| parameters | A dictionary of parameters for the analytics request. |

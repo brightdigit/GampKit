@@ -22,6 +22,7 @@
 -   [AnalyticsSessionManager](structs/AnalyticsSessionManager.md)
 -   [AnalyticsTiming](structs/AnalyticsTiming.md)
 -   [AnalyticsTracker](structs/AnalyticsTracker.md)
+-   [AnalyticsURLSession](structs/AnalyticsURLSession.md)
 -   [AnalyticsURLs](structs/AnalyticsURLs.md)
 -   [StringEncodingError](structs/StringEncodingError.md)
 
@@ -29,7 +30,6 @@
 
 -   [AnalyticsHitType](enums/AnalyticsHitType.md)
 -   [AnalyticsParameterKey](enums/AnalyticsParameterKey.md)
--   [RequestMethod](enums/RequestMethod.md)
 
 ## Extensions
 
@@ -39,6 +39,7 @@
 -   [AnalyticsTimingProtocol](extensions/AnalyticsTimingProtocol.md)
 -   [AnalyticsTrackerProtocol](extensions/AnalyticsTrackerProtocol.md)
 -   [NSException](extensions/NSException.md)
+-   [URLRequest](extensions/URLRequest.md)
 
 # Reference Documentation
 This reference documentation was generated with
