@@ -3,8 +3,20 @@
 # `AnalyticsTrackerProtocol`
 
 ## Methods
-### `track(exception:_:)`
+### `trackError(_:isFatal:_:)`
 
 ```swift
-func track(exception: NSException, _ callback: @escaping ((Error?) -> Void))
+public func trackError(_ error: Error, isFatal: Bool = false, _ callback: @escaping ((Error?) -> Void))
+```
+
+### `track(time:withCategory:withVariable:withLabel:_:)`
+
+```swift
+public func track(
+  time: TimeInterval,
+  withCategory category: String,
+  withVariable variable: String,
+  withLabel label: String?,
+  _ callback: @escaping ((Error?) -> Void)
+)
 ```

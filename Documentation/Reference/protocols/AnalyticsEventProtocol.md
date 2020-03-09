@@ -3,7 +3,7 @@
 # `AnalyticsEventProtocol`
 
 ```swift
-public protocol AnalyticsEventProtocol
+public protocol AnalyticsEventProtocol: AnalyticsTrackable
 ```
 
 ## Properties

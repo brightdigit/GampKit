@@ -50,15 +50,15 @@ public let customParameters: AnalyticsParameterDictionary
 ```
 
 ## Methods
-### `init(trackingIdentifier:applicationName:applicationVersion:customParameters:clientIdentifierDelegate:userLanguage:)`
+### `init(trackingIdentifier:applicationName:applicationVersion:clientIdentifier:customParameters:userLanguage:)`
 
 ```swift
 public init(
   trackingIdentifier: String,
   applicationName: String,
   applicationVersion: String,
+  clientIdentifier: String,
   customParameters: AnalyticsParameterDictionary? = nil,
-  clientIdentifierDelegate: ClientIdentifierProtocol? = nil,
   userLanguage: String? = nil
 )
 ```
