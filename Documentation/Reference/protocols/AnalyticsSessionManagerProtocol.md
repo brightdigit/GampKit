@@ -7,8 +7,8 @@ public protocol AnalyticsSessionManagerProtocol
 ```
 
 ## Methods
-### `send(_:)`
+### `send(_:_:)`
 
 ```swift
-func send(_ parameters: AnalyticsParameterDictionary)
+func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void))
 ```

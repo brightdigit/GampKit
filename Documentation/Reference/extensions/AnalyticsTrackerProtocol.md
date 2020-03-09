@@ -3,8 +3,8 @@
 # `AnalyticsTrackerProtocol`
 
 ## Methods
-### `track(exception:)`
+### `track(exception:_:)`
 
 ```swift
-func track(exception: NSException)
+func track(exception: NSException, _ callback: @escaping ((Error?) -> Void))
 ```

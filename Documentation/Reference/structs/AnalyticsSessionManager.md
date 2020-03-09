@@ -3,47 +3,31 @@
 # `AnalyticsSessionManager`
 
 ```swift
-public struct AnalyticsSessionManager: AnalyticsSessionManagerProtocol
+public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionManagerProtocol
 ```
 
 ## Properties
-### `baseUrl`
-
-```swift
-public let baseUrl: URL
-```
-
-### `timeoutInterval`
-
-```swift
-public let timeoutInterval: TimeInterval = 5
-```
-
 ### `session`
 
 ```swift
-public let session: URLSession
+public let session: SessionType
+```
+
+### `requestBuilder`
+
+```swift
+public let requestBuilder: AnalyticsRequestBuilderProtocol
 ```
 
 ## Methods
-### `createSession(withDelegate:inQueue:withUserAgent:)`
+### `init(session:requestBuilder:)`
 
 ```swift
-public static func createSession(
-  withDelegate delegate: URLSessionDelegate? = nil,
-  inQueue queue: OperationQueue? = nil,
-  withUserAgent userAgent: String? = nil
-) -> URLSession
+public init(session: SessionType, requestBuilder: AnalyticsRequestBuilderProtocol? = nil)
 ```
 
-### `init(baseUrl:)`
+### `send(_:_:)`
 
 ```swift
-public init(baseUrl: URL? = nil)
-```
-
-### `send(_:)`
-
-```swift
-public func send(_ parameters: AnalyticsParameterDictionary)
+public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void))
 ```
