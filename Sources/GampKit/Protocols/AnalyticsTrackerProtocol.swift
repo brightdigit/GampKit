@@ -11,7 +11,7 @@ public struct AnalyticsError: AnalyticsErrorProtocol {
 }
 
 extension AnalyticsTrackerProtocol {
-  public func trackError(_ error: Error, isFatal: Bool = false, _ callback: @escaping ((Error?) -> Void)) {
+  public func track(error: Error, isFatal: Bool = false, _ callback: @escaping ((Error?) -> Void)) {
     track(AnalyticsError(originalError: error, isFatal: isFatal), callback)
   }
 

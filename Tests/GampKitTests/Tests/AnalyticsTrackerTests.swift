@@ -135,7 +135,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     )
     let sessionManager = MockSessionManager()
     let tracker = AnalyticsTracker(configuration: config, sessionManager: sessionManager)
-    tracker.trackError(MockError(description: exceptionDescription)) { _ in
+    tracker.track(error: MockError(description: exceptionDescription)) { _ in
       trackExpectation.fulfill()
     }
 
