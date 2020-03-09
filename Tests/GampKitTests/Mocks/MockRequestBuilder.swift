@@ -1,10 +1,14 @@
 import GampKit
 
 struct MockRequestBuilder: AnalyticsRequestBuilderProtocol {
+  let error: Error?
   func request<SessionType, RequestType>(
     forSession session: SessionType,
     withParameters _: AnalyticsParameterDictionary
-  ) -> RequestType where SessionType: Session, RequestType == SessionType.RequestType {
+  ) throws -> RequestType where SessionType: Session, RequestType == SessionType.RequestType {
+    if let error = self.error {
+      throw error
+    }
     return session.request(withURL: .random(), cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 5.0)
   }
 }

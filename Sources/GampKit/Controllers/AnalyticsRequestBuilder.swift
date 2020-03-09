@@ -20,10 +20,10 @@ public struct AnalyticsRequestBuilder: AnalyticsRequestBuilderProtocol {
   public func request<SessionType, RequestType>(
     forSession session: SessionType,
     withParameters parameters: AnalyticsParameterDictionary
-  ) -> RequestType where SessionType: Session, RequestType == SessionType.RequestType {
+  ) throws -> RequestType where SessionType: Session, RequestType == SessionType.RequestType {
     var request = session.request(withURL: baseURL, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
 
-    request.body = parameterEncoder.encode(parameters: parameters)
+    request.body = try parameterEncoder.encode(parameters: parameters)
     request.method = .post
     return request
   }

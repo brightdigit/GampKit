@@ -120,10 +120,6 @@ final class AnalyticsTrackerTests: XCTestCase {
     let applicationName = String.random()
     let applicationVersion = String.random()
     let exceptionDescription = String.random()
-//    let value = Int.random()
-//    let category = String.random()
-//    let action = String.random()
-//    let label = String.random()
     let clientIdentifier = String.random()
     let userLanguage = "en-us"
     let config = AnalyticsConfiguration(
@@ -165,6 +161,63 @@ final class AnalyticsTrackerTests: XCTestCase {
       XCTAssertEqual(1, parameters[.version] as? Int)
       keys += 1
       XCTAssertEqual(keys, parameters.count)
+    }
+  }
+
+  static let configurationParameterKeys: Set<AnalyticsParameterKey> = Set([
+    .trackingId,
+    .applicationName,
+    .applicationVersion,
+    .version,
+    .clientId,
+    .userLanguage
+  ])
+
+  func testCustomTrackable() {
+    let trackExpectation = expectation(description: "track-custom")
+    let trackingIdentifier = String.random()
+    let applicationName = String.random()
+    let applicationVersion = String.random()
+    let clientIdentifier = String.random()
+
+    let key = Set(AnalyticsParameterKey.allCases)
+      .subtracting(AnalyticsTrackerTests.configurationParameterKeys)
+      .randomElement()!
+    let expectedValue = String.random()
+    let otherValue = String.random()
+    let customDictionary = [key: otherValue]
+    let config = AnalyticsConfiguration(
+      trackingIdentifier: trackingIdentifier,
+      applicationName: applicationName,
+      applicationVersion: applicationVersion,
+      clientIdentifier: clientIdentifier,
+      customParameters: customDictionary
+    )
+    let sessionManager = MockSessionManager()
+    let tracker = AnalyticsTracker(configuration: config, sessionManager: sessionManager)
+    tracker.track(MockTrackable(key: key, value: expectedValue)) { _ in
+      trackExpectation.fulfill()
+    }
+    waitForExpectations(timeout: 1000) { error in
+      XCTAssertNil(error)
+      guard let parameters = sessionManager.lastParameters else {
+        XCTFail("No parameters sent")
+        return
+      }
+      var keys = 0
+      XCTAssertEqual(trackingIdentifier, parameters[.trackingId] as? String)
+      keys += 1
+      XCTAssertEqual(applicationName, parameters[.applicationName] as? String)
+      keys += 1
+      XCTAssertEqual(applicationVersion, parameters[.applicationVersion] as? String)
+      keys += 1
+      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? String)
+      keys += 1
+      XCTAssertEqual(Locale.preferredLanguages.first, parameters[.userLanguage] as? String)
+      keys += 1
+      XCTAssertEqual(1, parameters[.version] as? Int)
+      keys += 1
+      XCTAssertEqual(expectedValue, parameters[key] as? String)
     }
   }
 

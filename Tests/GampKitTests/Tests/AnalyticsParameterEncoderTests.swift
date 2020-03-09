@@ -5,8 +5,11 @@ final class AnalyticsParameterEncoderTests: XCTestCase {
   func testEncode() {
     let encoder = AnalyticsParameterEncoder()
     let dictionary = AnalyticsParameterDictionary.random()
-    guard let data = encoder.encode(parameters: dictionary) else {
-      XCTFail("No data from encoder.")
+    let data: Data
+    do {
+      data = try encoder.encode(parameters: dictionary)
+    } catch {
+      XCTFail(error.localizedDescription)
       return
     }
     guard let text = String(data: data, encoding: .utf8) else {

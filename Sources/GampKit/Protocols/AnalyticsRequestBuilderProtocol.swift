@@ -4,5 +4,5 @@ public protocol AnalyticsRequestBuilderProtocol {
   func request<SessionType: Session, RequestType>(
     forSession session: SessionType,
     withParameters parameters: AnalyticsParameterDictionary
-  ) -> RequestType where SessionType.RequestType == RequestType
+  ) throws -> RequestType where SessionType.RequestType == RequestType
 }
