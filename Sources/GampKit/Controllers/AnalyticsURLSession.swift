@@ -12,7 +12,7 @@ public struct AnalyticsURLSession: Session {
    */
   public let url: URL
   public let cachePolicy: URLRequest.CachePolicy
-  public let session: URLSession
+  public let session: URLSessionable
   public let timeoutInterval: TimeInterval
 
   public func request() -> URLRequest {
@@ -22,8 +22,6 @@ public struct AnalyticsURLSession: Session {
   }
 
   public func begin(request: URLRequest, _ completion: @escaping ((Error?) -> Void)) {
-    session.dataTask(with: request) { _, _, error in
-      completion(error)
-    }.resume()
+    session.dataTask(with: request, completion).resume()
   }
 }
