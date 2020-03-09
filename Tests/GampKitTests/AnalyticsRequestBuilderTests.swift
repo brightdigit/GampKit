@@ -1,9 +1,6 @@
 @testable import GampKit
 import XCTest
 
-
-
-
 final class AnalyticsRequestBuilderTests: XCTestCase {
   func testRequest() {
     let url = URL.random()

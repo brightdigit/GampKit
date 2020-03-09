@@ -1,9 +1,6 @@
 @testable import GampKit
 import XCTest
 
-
-
-
 final class AnalyticsSessionManagerTests: XCTestCase {
   func testSend() {
     let sentExpectation = expectation(description: "Send Completed")

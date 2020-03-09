@@ -1,11 +1,8 @@
 @testable import GampKit
 import XCTest
 
-
-
-
 final class AnalyticsTrackerTests: XCTestCase {
-  func testTime () {
+  func testTime() {
     let trackExpectation = expectation(description: "track-time")
     let trackingIdentifier = String.random()
     let applicationName = String.random()
@@ -16,13 +13,19 @@ final class AnalyticsTrackerTests: XCTestCase {
     let label = String.random()
     let clientIdentifier = String.random()
     let userLanguage = "en-us"
-    let config = AnalyticsConfiguration(trackingIdentifier: trackingIdentifier, applicationName: applicationName, applicationVersion: applicationVersion, clientIdentifier: clientIdentifier, customParameters: nil, userLanguage: userLanguage)
+    let config = AnalyticsConfiguration(
+      trackingIdentifier: trackingIdentifier,
+      applicationName: applicationName,
+      applicationVersion: applicationVersion,
+      clientIdentifier: clientIdentifier,
+      userLanguage: userLanguage
+    )
     let sessionManager = MockSessionManager()
     let tracker = AnalyticsTracker(configuration: config, sessionManager: sessionManager)
-    tracker.track(time: time, withCategory: category, withVariable: variable, withLabel: label) { (error) in
+    tracker.track(time: time, withCategory: category, withVariable: variable, withLabel: label) { _ in
       trackExpectation.fulfill()
     }
-    waitForExpectations(timeout: 1000) { (error) in
+    waitForExpectations(timeout: 1000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -52,11 +55,10 @@ final class AnalyticsTrackerTests: XCTestCase {
       XCTAssertEqual(1, parameters[.version] as? Int)
       keys += 1
       XCTAssertEqual(keys, parameters.count)
-      
     }
   }
-  
-  func testEvent () {
+
+  func testEvent() {
     let trackExpectation = expectation(description: "track-event")
     let trackingIdentifier = String.random()
     let applicationName = String.random()
@@ -67,13 +69,19 @@ final class AnalyticsTrackerTests: XCTestCase {
     let label = String.random()
     let clientIdentifier = String.random()
     let userLanguage = "en-us"
-    let config = AnalyticsConfiguration(trackingIdentifier: trackingIdentifier, applicationName: applicationName, applicationVersion: applicationVersion, clientIdentifier: clientIdentifier, customParameters: nil, userLanguage: userLanguage)
+    let config = AnalyticsConfiguration(
+      trackingIdentifier: trackingIdentifier,
+      applicationName: applicationName,
+      applicationVersion: applicationVersion,
+      clientIdentifier: clientIdentifier,
+      userLanguage: userLanguage
+    )
     let sessionManager = MockSessionManager()
     let tracker = AnalyticsTracker(configuration: config, sessionManager: sessionManager)
-    tracker.track(AnalyticsEvent(category: category, action: action, label: label, value: value)) { (_) in
-    trackExpectation.fulfill()
+    tracker.track(AnalyticsEvent(category: category, action: action, label: label, value: value)) { _ in
+      trackExpectation.fulfill()
     }
-    waitForExpectations(timeout: 1000) { (error) in
+    waitForExpectations(timeout: 1000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -103,11 +111,10 @@ final class AnalyticsTrackerTests: XCTestCase {
       XCTAssertEqual(1, parameters[.version] as? Int)
       keys += 1
       XCTAssertEqual(keys, parameters.count)
-      
     }
   }
-  
-  func testError () {
+
+  func testError() {
     let trackExpectation = expectation(description: "track-error")
     let trackingIdentifier = String.random()
     let applicationName = String.random()
@@ -119,14 +126,20 @@ final class AnalyticsTrackerTests: XCTestCase {
 //    let label = String.random()
     let clientIdentifier = String.random()
     let userLanguage = "en-us"
-    let config = AnalyticsConfiguration(trackingIdentifier: trackingIdentifier, applicationName: applicationName, applicationVersion: applicationVersion, clientIdentifier: clientIdentifier, customParameters: nil, userLanguage: userLanguage)
+    let config = AnalyticsConfiguration(
+      trackingIdentifier: trackingIdentifier,
+      applicationName: applicationName,
+      applicationVersion: applicationVersion,
+      clientIdentifier: clientIdentifier,
+      userLanguage: userLanguage
+    )
     let sessionManager = MockSessionManager()
     let tracker = AnalyticsTracker(configuration: config, sessionManager: sessionManager)
-    tracker.trackError( MockError(description: exceptionDescription)) { (_) in
-    trackExpectation.fulfill()
+    tracker.trackError(MockError(description: exceptionDescription)) { _ in
+      trackExpectation.fulfill()
     }
 
-    waitForExpectations(timeout: 1000) { (error) in
+    waitForExpectations(timeout: 1000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -152,37 +165,42 @@ final class AnalyticsTrackerTests: XCTestCase {
       XCTAssertEqual(1, parameters[.version] as? Int)
       keys += 1
       XCTAssertEqual(keys, parameters.count)
-      
     }
   }
 
-  func testException () {
+  func testException() {
     #if os(Linux)
-    
+
     #else
       let trackExpectation = expectation(description: "track-error")
       let trackingIdentifier = String.random()
       let applicationName = String.random()
       let applicationVersion = String.random()
-      //let exceptionDescription = String.random()
-  //    let value = Int.random()
-  //    let category = String.random()
-  //    let action = String.random()
-  //    let label = String.random()
+      // let exceptionDescription = String.random()
+      //    let value = Int.random()
+      //    let category = String.random()
+      //    let action = String.random()
+      //    let label = String.random()
       let clientIdentifier = String.random()
       let userLanguage = "en-us"
-    let exceptionName = NSExceptionName(String.random())
-    let exceptionReason = String.random()
-      let config = AnalyticsConfiguration(trackingIdentifier: trackingIdentifier, applicationName: applicationName, applicationVersion: applicationVersion, clientIdentifier: clientIdentifier, customParameters: nil, userLanguage: userLanguage)
+      let exceptionName = NSExceptionName(String.random())
+      let exceptionReason = String.random()
+      let config = AnalyticsConfiguration(
+        trackingIdentifier: trackingIdentifier,
+        applicationName: applicationName,
+        applicationVersion: applicationVersion,
+        clientIdentifier: clientIdentifier,
+        userLanguage: userLanguage
+      )
       let sessionManager = MockSessionManager()
       let tracker = AnalyticsTracker(configuration: config, sessionManager: sessionManager)
-    
-    let nsException = NSException(name: exceptionName, reason: exceptionReason, userInfo: nil)
-    tracker.track(nsException) { (_) in
-      trackExpectation.fulfill()
+
+      let nsException = NSException(name: exceptionName, reason: exceptionReason, userInfo: nil)
+      tracker.track(nsException) { _ in
+        trackExpectation.fulfill()
       }
 
-      waitForExpectations(timeout: 1000) { (error) in
+      waitForExpectations(timeout: 1000) { error in
         XCTAssertNil(error)
         guard let parameters = sessionManager.lastParameters else {
           XCTFail("No parameters sent")
@@ -208,8 +226,7 @@ final class AnalyticsTrackerTests: XCTestCase {
         XCTAssertEqual(1, parameters[.version] as? Int)
         keys += 1
         XCTAssertEqual(keys, parameters.count)
-        
       }
     #endif
-    }
+  }
 }

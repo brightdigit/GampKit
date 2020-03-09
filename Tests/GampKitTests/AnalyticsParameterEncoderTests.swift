@@ -1,7 +1,6 @@
 @testable import GampKit
 import XCTest
 
-
 final class AnalyticsParameterEncoderTests: XCTestCase {
   func testEncode() {
     let encoder = AnalyticsParameterEncoder()

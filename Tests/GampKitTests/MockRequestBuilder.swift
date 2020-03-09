@@ -1,4 +1,3 @@
-
 import GampKit
 
 struct MockRequestBuilder: AnalyticsRequestBuilderProtocol {

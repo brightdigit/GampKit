@@ -1,11 +1,11 @@
 import Foundation
 
-struct MockError : Error {
+struct MockError: Error {
   let description: String
-  
 }
-extension MockError : LocalizedError {
+
+extension MockError: LocalizedError {
   var errorDescription: String? {
-    return self.description
+    return description
   }
 }
