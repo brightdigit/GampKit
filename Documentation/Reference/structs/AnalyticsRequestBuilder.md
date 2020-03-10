@@ -15,6 +15,8 @@ public struct AnalyticsRequestBuilder: AnalyticsRequestBuilderProtocol
 public let parameterEncoder: AnalyticsParameterEncoderProtocol
 ```
 
+> The parameter encoder.
+
 ## Methods
 ### `init(parameterEncoder:)`
 
@@ -23,6 +25,15 @@ public init(
   parameterEncoder: AnalyticsParameterEncoderProtocol? = nil
 )
 ```
+
+> Creates the request builder based on the parameter encoder.
+>  - Parameter parameterEncoder: Encodes the parameters for the request.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| parameterEncoder | Encodes the parameters for the request. |
 
 ### `request(forSession:withParameters:)`
 
