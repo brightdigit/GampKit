@@ -28,7 +28,7 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
    - Parameter callback: What to call on completion.
    */
   public func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((Error?) -> Void)) {
-    let parameters = configuration.parameters.merging(trackable.parameters()) { _, newValue in
+    let parameters = configuration.parameters().merging(trackable.parameters()) { _, newValue in
       newValue
     }
     sessionManager.send(parameters, callback)

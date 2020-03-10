@@ -1,3 +1,1 @@
-public protocol AnalyticsTrackable {
-  func parameters() -> AnalyticsParameterDictionary
-}
+public protocol AnalyticsTrackable: AnalyticsParameterable {}

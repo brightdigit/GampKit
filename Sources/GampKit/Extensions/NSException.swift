@@ -1,8 +1,8 @@
 import Foundation
 
 #if !os(Linux)
-  extension NSException: AnalyticsErrorProtocol, Error {
-    public var originalError: Error {
+  extension NSException: AnalyticsExceptionProtocol, Error {
+    public var error: Error {
       return self
     }
 

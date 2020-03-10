@@ -20,7 +20,7 @@ extension AnalyticsTrackerProtocol {
    - Parameter callback: What to call on completion.
    */
   public func track(error: Error, isFatal: Bool = false, _ callback: @escaping ((Error?) -> Void)) {
-    track(AnalyticsError(originalError: error, isFatal: isFatal), callback)
+    track(AnalyticsException(error: error, isFatal: isFatal), callback)
   }
 
   /**
