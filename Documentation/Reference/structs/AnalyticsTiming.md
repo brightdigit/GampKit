@@ -6,6 +6,8 @@
 public struct AnalyticsTiming: AnalyticsTimingProtocol
 ```
 
+> A timed event for tracking.
+
 ## Properties
 ### `time`
 
@@ -13,11 +15,15 @@ public struct AnalyticsTiming: AnalyticsTimingProtocol
 public let time: TimeInterval
 ```
 
+> The timing to track.
+
 ### `category`
 
 ```swift
 public let category: String
 ```
+
+> The timing category.
 
 ### `variable`
 
@@ -25,8 +31,12 @@ public let category: String
 public let variable: String
 ```
 
+> The timing variable.
+
 ### `label`
 
 ```swift
 public let label: String?
 ```
+
+> The timing label.

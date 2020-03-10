@@ -6,6 +6,8 @@
 public protocol Session
 ```
 
+> Session used for making and sending requests.
+
 ## Methods
 ### `request()`
 

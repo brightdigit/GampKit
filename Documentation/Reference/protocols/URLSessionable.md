@@ -6,9 +6,23 @@
 public protocol URLSessionable
 ```
 
+> Abstraction for making URLRequests.
+
 ## Methods
 ### `dataTask(with:_:)`
 
 ```swift
 func dataTask(with request: URLRequest, _ completion: @escaping (Error?) -> Void) -> URLSessionableDataTask
 ```
+
+> Creates the URLRequestDataTask and calls resume.
+> - Parameter request: The URLRequest.
+> - Parameter completion: What to call when the call is completed.
+> - Returns: The URLSession Task.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| request | The URLRequest. |
+| completion | What to call when the call is completed. |

@@ -13,11 +13,15 @@ public protocol AnalyticsTimingProtocol: AnalyticsTrackable
 var time: TimeInterval
 ```
 
+> The timing to track.
+
 ### `category`
 
 ```swift
 var category: String
 ```
+
+> The timing category.
 
 ### `variable`
 
@@ -25,8 +29,12 @@ var category: String
 var variable: String
 ```
 
+> The timing variable.
+
 ### `label`
 
 ```swift
 var label: String?
 ```
+
+> The timing label.
