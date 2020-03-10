@@ -11,10 +11,30 @@ public struct AnalyticsURLSession: Session {
    Base URL for the request.
    */
   public let url: URL
+
+  /**
+   Cache policy for URLRequest.
+   */
   public let cachePolicy: URLRequest.CachePolicy
+
+  /**
+   URL Session.
+   */
   public let session: URLSessionable
+
+  /**
+   Timeout for URLRequest.
+   */
   public let timeoutInterval: TimeInterval
 
+  /**
+   Creates the URL Session to use for analytics.
+   - Parameters:
+     - url: Optional URL for analytics URL
+     - cachePolicy: Cache policy for URLRequest.
+     - timeoutInterval: Timeout for URLRequest.
+     - session: URL Session for URLRequest.
+   */
   public init(url: URL? = nil,
               cachePolicy: URLRequest.CachePolicy? = nil,
               session: URLSessionable? = nil,
@@ -25,12 +45,21 @@ public struct AnalyticsURLSession: Session {
     self.session = session ?? URLSession.shared
   }
 
+  /**
+   Creates the URLRequest.
+   */
   public func request() -> URLRequest {
     var request = URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
     request.httpMethod = "POST"
     return request
   }
 
+  /**
+   Makes the request.
+   - Parameters:
+     - request: The URLRequest
+     - completion: Callback to call when the request is finished.
+   */
   public func begin(request: URLRequest, _ completion: @escaping ((Error?) -> Void)) {
     session.dataTask(with: request, completion).resume()
   }
