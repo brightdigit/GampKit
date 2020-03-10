@@ -29,7 +29,7 @@ public init(configuration: AnalyticsConfigurationProtocol, sessionManager: Analy
 ### `track(_:_:)`
 
 ```swift
-public func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((Error?) -> Void))
+public func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
 > Tracks the trackable item.

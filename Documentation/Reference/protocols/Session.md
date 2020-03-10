@@ -20,7 +20,7 @@ func request() -> RequestType
 ### `begin(request:_:)`
 
 ```swift
-func begin(request: RequestType, _ completion: @escaping ((Error?) -> Void))
+func begin(request: RequestType, _ completion: @escaping ((AnalyticsResult) -> Void))
 ```
 
 > Makes the request.

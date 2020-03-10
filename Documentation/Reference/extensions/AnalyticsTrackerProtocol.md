@@ -6,7 +6,7 @@
 ### `track(error:isFatal:_:)`
 
 ```swift
-public func track(error: Error, isFatal: Bool = false, _ callback: @escaping ((Error?) -> Void))
+public func track(error: Error, isFatal: Bool = false, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
 > Tracks the trackable the error.
@@ -30,7 +30,7 @@ public func track(
   withCategory category: String,
   withVariable variable: String,
   withLabel label: String?,
-  _ callback: @escaping ((Error?) -> Void)
+  _ callback: @escaping ((AnalyticsResult) -> Void)
 )
 ```
 

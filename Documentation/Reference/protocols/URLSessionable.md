@@ -12,7 +12,7 @@ public protocol URLSessionable
 ### `dataTask(with:_:)`
 
 ```swift
-func dataTask(with request: URLRequest, _ completion: @escaping (Error?) -> Void) -> URLSessionableDataTask
+func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
 ```
 
 > Creates the URLRequestDataTask and calls resume.
