@@ -34,6 +34,15 @@ public let timeoutInterval: TimeInterval
 ```
 
 ## Methods
+### `init(url:cachePolicy:session:timeoutInterval:)`
+
+```swift
+public init(url: URL? = nil,
+            cachePolicy: URLRequest.CachePolicy? = nil,
+            session: URLSessionable? = nil,
+            timeoutInterval: TimeInterval? = nil)
+```
+
 ### `request()`
 
 ```swift
