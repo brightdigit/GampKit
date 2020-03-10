@@ -4,7 +4,7 @@ import Foundation
 #endif
 
 extension URLSession: URLSessionable {
-  public func dataTask(with request: URLRequest, _ completion: @escaping (Error?) -> Void) -> URLSessionableDataTask {
+  public func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask {
     return dataTask(with: request) { data, response, error in
       #if DEBUG
         let text = data.flatMap { String(data: $0, encoding: .utf8) }
@@ -16,7 +16,7 @@ extension URLSession: URLSessionable {
           debugPrint(text)
         }
       #endif
-      completion(error)
+      completion(AnalyticsResult(error: error))
     }
   }
 }

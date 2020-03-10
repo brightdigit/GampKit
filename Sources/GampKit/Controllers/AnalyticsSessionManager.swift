@@ -27,12 +27,12 @@ public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionMan
    - Parameter parameters: The parameters to send.
    - Parameter callback: Callback to call on completion.
    */
-  public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void)) {
+  public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((AnalyticsResult) -> Void)) {
     do {
       let request = try requestBuilder.request(forSession: session, withParameters: parameters)
       session.begin(request: request, callback)
     } catch {
-      callback(error)
+      callback(.failure(error))
       return
     }
   }

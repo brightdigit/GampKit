@@ -60,7 +60,7 @@ public struct AnalyticsURLSession: Session {
      - request: The URLRequest
      - completion: Callback to call when the request is finished.
    */
-  public func begin(request: URLRequest, _ completion: @escaping ((Error?) -> Void)) {
+  public func begin(request: URLRequest, _ completion: @escaping ((AnalyticsResult) -> Void)) {
     session.dataTask(with: request, completion).resume()
   }
 }

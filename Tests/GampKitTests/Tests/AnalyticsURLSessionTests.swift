@@ -8,14 +8,14 @@ import XCTest
 
 class MockDataTask: URLSessionableDataTask {
   let error: Error?
-  let completion: (Error?) -> Void
+  let completion: (AnalyticsResult) -> Void
   var isCompleted = false
   func resume() {
-    completion(error)
+    completion(AnalyticsResult(error: error))
     isCompleted = true
   }
 
-  init(error: Error?, completion: @escaping (Error?) -> Void) {
+  init(error: Error?, completion: @escaping (AnalyticsResult) -> Void) {
     self.error = error
     self.completion = completion
   }
@@ -28,7 +28,7 @@ class MockURLSession: URLSessionable {
     self.error = error
   }
 
-  func dataTask(with _: URLRequest, _ completion: @escaping (Error?) -> Void) -> URLSessionableDataTask {
+  func dataTask(with _: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask {
     let task = MockDataTask(error: error, completion: completion)
     lastTask = task
     return task
@@ -63,8 +63,10 @@ final class AnalyticsURLSessionTests: XCTestCase {
     XCTAssertEqual(request.body, request.httpBody)
     XCTAssertEqual(request.httpBody, data)
 
-    session.begin(request: request) { error in
-      actualError = error
+    session.begin(request: request) { result in
+      if case let .failure(error) = result {
+        actualError = error
+      }
       taskException.fulfill()
     }
     waitForExpectations(timeout: 1000) { error in

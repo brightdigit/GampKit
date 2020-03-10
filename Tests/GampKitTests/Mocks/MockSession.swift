@@ -7,10 +7,10 @@ struct MockSession: Session {
     return MockRequest(body: nil, actualError: actualError)
   }
 
-  func begin(request: MockRequest, _ completion: @escaping ((Error?) -> Void)) {
+  func begin(request: MockRequest, _ completion: @escaping ((AnalyticsResult) -> Void)) {
     request.sent = true
 
-    completion(request.actualError)
+    completion(AnalyticsResult(error: request.actualError))
   }
 
   typealias RequestType = MockRequest

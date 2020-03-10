@@ -13,8 +13,8 @@ final class AnalyticsSessionManagerTests: XCTestCase {
     let session = MockSession(error: MockError(description: description))
     let builder = MockRequestBuilder(error: nil)
     let manager = AnalyticsSessionManager(session: session, requestBuilder: builder)
-    manager.send(.random()) { error in
-      guard let error = error as? MockError else {
+    manager.send(.random()) { result in
+      guard case let .failure(error) = result else {
         XCTFail("Invalid or Missing Error")
         return
       }
@@ -30,8 +30,8 @@ final class AnalyticsSessionManagerTests: XCTestCase {
     let errorString = String.random()
     let builder = MockRequestBuilder(error: MockError(description: errorString))
     let manager = AnalyticsSessionManager(session: session, requestBuilder: builder)
-    manager.send(.random()) { error in
-      guard let error = error as? MockError else {
+    manager.send(.random()) { result in
+      guard case let .failure(error) = result else {
         XCTFail("Invalid or Missing Error")
         return
       }

@@ -9,7 +9,7 @@ public protocol AnalyticsTrackerProtocol {
    - Parameter trackable: The trackable item.
    - Parameter callback: What to call on completion.
    */
-  func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((Error?) -> Void))
+  func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((AnalyticsResult) -> Void))
 }
 
 extension AnalyticsTrackerProtocol {
@@ -19,7 +19,7 @@ extension AnalyticsTrackerProtocol {
    - Parameter isFatal: Whether the error is fatal.
    - Parameter callback: What to call on completion.
    */
-  public func track(error: Error, isFatal: Bool = false, _ callback: @escaping ((Error?) -> Void)) {
+  public func track(error: Error, isFatal: Bool = false, _ callback: @escaping ((AnalyticsResult) -> Void)) {
     track(AnalyticsException(error: error, isFatal: isFatal), callback)
   }
 
@@ -37,7 +37,7 @@ extension AnalyticsTrackerProtocol {
     withCategory category: String,
     withVariable variable: String,
     withLabel label: String?,
-    _ callback: @escaping ((Error?) -> Void)
+    _ callback: @escaping ((AnalyticsResult) -> Void)
   ) {
     track(AnalyticsTiming(time: time, category: category, variable: variable, label: label), callback)
   }

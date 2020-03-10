@@ -18,5 +18,5 @@ public protocol Session {
      - request: The URLRequest
      - completion: Callback to call when the request is finished.
    */
-  func begin(request: RequestType, _ completion: @escaping ((Error?) -> Void))
+  func begin(request: RequestType, _ completion: @escaping ((AnalyticsResult) -> Void))
 }

@@ -12,5 +12,5 @@ public protocol URLSessionable {
    - Parameter completion: What to call when the call is completed.
    - Returns: The URLSession Task.
    */
-  func dataTask(with request: URLRequest, _ completion: @escaping (Error?) -> Void) -> URLSessionableDataTask
+  func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
 }
