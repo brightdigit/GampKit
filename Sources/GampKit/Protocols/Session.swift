@@ -3,6 +3,9 @@ import Foundation
   import FoundationNetworking
 #endif
 
+/**
+ Session used for making and sending requests.
+ */
 public protocol Session {
   associatedtype RequestType: Request
   /**
