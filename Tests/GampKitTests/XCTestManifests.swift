@@ -50,6 +50,7 @@
       ("testError", testError),
       ("testEvent", testEvent),
       ("testException", testException),
+      ("testInit", testInit),
       ("testTime", testTime)
     ]
   }

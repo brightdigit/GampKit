@@ -282,4 +282,28 @@ final class AnalyticsTrackerTests: XCTestCase {
       }
     #endif
   }
+
+  func testInit() {
+    let trackingIdentifier = String.random()
+    let applicationName = String.random()
+    let applicationVersion = String.random()
+    let clientIdentifier = String.random()
+    let userLanguage = "en-us"
+    let config = AnalyticsConfiguration(
+      trackingIdentifier: trackingIdentifier,
+      applicationName: applicationName,
+      applicationVersion: applicationVersion,
+      clientIdentifier: clientIdentifier,
+      userLanguage: userLanguage
+    )
+    let tracker = AnalyticsTracker(configuration: config)
+    guard let manager = tracker.sessionManager as? AnalyticsSessionManager<AnalyticsURLSession> else {
+      XCTFail("Invalid Session Manager")
+      return
+    }
+
+    XCTAssertEqual(manager.session.cachePolicy, .useProtocolCachePolicy)
+    XCTAssertEqual(manager.session.url, AnalyticsURLs.default)
+    XCTAssertEqual(manager.session.timeoutInterval, 5.0)
+  }
 }

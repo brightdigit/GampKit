@@ -4,15 +4,19 @@ import Foundation
  Builds a analytics request based on the session.
  */
 public struct AnalyticsRequestBuilder: AnalyticsRequestBuilderProtocol {
+  /**
+   The parameter encoder.
+   */
   public let parameterEncoder: AnalyticsParameterEncoderProtocol
 
+  /**
+   Creates the request builder based on the parameter encoder.
+    - Parameter parameterEncoder: Encodes the parameters for the request.
+   */
   public init(
     parameterEncoder: AnalyticsParameterEncoderProtocol? = nil
   ) {
-    // self.baseURL = baseURL ?? AnalyticsURLs.default
     self.parameterEncoder = parameterEncoder ?? AnalyticsParameterEncoder()
-    // self.cachePolicy = cachePolicy
-    // self.timeoutInterval = timeoutInterval
   }
 
   /**
