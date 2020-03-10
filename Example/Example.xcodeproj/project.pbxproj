@@ -288,8 +288,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8144FF6A1C5C42FBA995BE80 /* Build configuration list for PBXNativeTarget "iOS_Example" */;
 			buildPhases = (
-				B302EBFC2417289D002525AE /* Resources */,
 				B6B3C2C0D4059923503C687C /* [CP] Check Pods Manifest.lock */,
+				B302EBFC2417289D002525AE /* Resources */,
 				5242E0FED028AA9EBD060E99 /* Sources */,
 				6FB54418A185527039EFB8C9 /* Embed Watch Content */,
 				9984056F929E005F9352A9B3 /* Frameworks */,
