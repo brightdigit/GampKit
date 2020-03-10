@@ -1,9 +1,10 @@
 ## Protocols
 
 -   [AnalyticsConfigurationProtocol](protocols/AnalyticsConfigurationProtocol.md)
--   [AnalyticsErrorProtocol](protocols/AnalyticsErrorProtocol.md)
 -   [AnalyticsEventProtocol](protocols/AnalyticsEventProtocol.md)
+-   [AnalyticsExceptionProtocol](protocols/AnalyticsExceptionProtocol.md)
 -   [AnalyticsParameterEncoderProtocol](protocols/AnalyticsParameterEncoderProtocol.md)
+-   [AnalyticsParameterable](protocols/AnalyticsParameterable.md)
 -   [AnalyticsRequestBuilderProtocol](protocols/AnalyticsRequestBuilderProtocol.md)
 -   [AnalyticsSessionManagerProtocol](protocols/AnalyticsSessionManagerProtocol.md)
 -   [AnalyticsTimingProtocol](protocols/AnalyticsTimingProtocol.md)
@@ -17,8 +18,8 @@
 ## Structs
 
 -   [AnalyticsConfiguration](structs/AnalyticsConfiguration.md)
--   [AnalyticsError](structs/AnalyticsError.md)
 -   [AnalyticsEvent](structs/AnalyticsEvent.md)
+-   [AnalyticsException](structs/AnalyticsException.md)
 -   [AnalyticsParameterEncoder](structs/AnalyticsParameterEncoder.md)
 -   [AnalyticsRequestBuilder](structs/AnalyticsRequestBuilder.md)
 -   [AnalyticsSessionManager](structs/AnalyticsSessionManager.md)
@@ -36,8 +37,8 @@
 ## Extensions
 
 -   [AnalyticsConfigurationProtocol](extensions/AnalyticsConfigurationProtocol.md)
--   [AnalyticsErrorProtocol](extensions/AnalyticsErrorProtocol.md)
 -   [AnalyticsEventProtocol](extensions/AnalyticsEventProtocol.md)
+-   [AnalyticsExceptionProtocol](extensions/AnalyticsExceptionProtocol.md)
 -   [AnalyticsTimingProtocol](extensions/AnalyticsTimingProtocol.md)
 -   [AnalyticsTrackerProtocol](extensions/AnalyticsTrackerProtocol.md)
 -   [NSException](extensions/NSException.md)

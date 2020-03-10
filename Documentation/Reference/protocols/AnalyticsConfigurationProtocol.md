@@ -3,8 +3,10 @@
 # `AnalyticsConfigurationProtocol`
 
 ```swift
-public protocol AnalyticsConfigurationProtocol
+public protocol AnalyticsConfigurationProtocol: AnalyticsParameterable
 ```
+
+> Static configuration to use for tracking the application.
 
 ## Properties
 ### `applicationVersion`
@@ -13,11 +15,15 @@ public protocol AnalyticsConfigurationProtocol
 var applicationVersion: String
 ```
 
+> Application version.
+
 ### `applicationName`
 
 ```swift
 var applicationName: String
 ```
+
+> Application name.
 
 ### `trackingIdentifier`
 
@@ -25,11 +31,15 @@ var applicationName: String
 var trackingIdentifier: String
 ```
 
+> Tracking identifier for Google Analytics.
+
 ### `clientIdentifier`
 
 ```swift
 var clientIdentifier: String
 ```
+
+> Anonymous client identifier for Google Analytics.
 
 ### `version`
 
@@ -37,14 +47,20 @@ var clientIdentifier: String
 var version: Int
 ```
 
+> Static version number. `1`
+
 ### `userLanguage`
 
 ```swift
 var userLanguage: String?
 ```
 
+> (Optional) User language.
+
 ### `customParameters`
 
 ```swift
 var customParameters: AnalyticsParameterDictionary
 ```
+
+> (Optional) Custom parameters to attach to all tracking info.

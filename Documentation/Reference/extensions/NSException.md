@@ -3,10 +3,10 @@
 # `NSException`
 
 ## Properties
-### `originalError`
+### `error`
 
 ```swift
-public var originalError: Error
+public var error: Error
 ```
 
 ### `isFatal`
