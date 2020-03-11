@@ -36,7 +36,7 @@ extension AnalyticsTrackerProtocol {
     time: TimeInterval,
     withCategory category: String,
     withVariable variable: String,
-    withLabel label: String?,
+    withLabel label: String? = nil,
     _ callback: @escaping ((AnalyticsResult) -> Void)
   ) {
     track(AnalyticsTiming(time: time, category: category, variable: variable, label: label), callback)

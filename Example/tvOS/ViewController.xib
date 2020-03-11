@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="Eym-vH-oyN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsu-CA-fdk">
+                    <rect key="frame" x="727.5" y="395" width="465" height="290"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-pi-BU4">
+                            <rect key="frame" x="60" y="196" width="345" height="86"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" title="Track Exception"/>
+                            <connections>
+                                <action selector="trackExceptionFromButton:withEvent:" destination="-1" eventType="primaryActionTriggered" id="26p-ys-YEs"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJY-xJ-ig8">
+                            <rect key="frame" x="60" y="102" width="345" height="86"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" title="Start Timer"/>
+                            <connections>
+                                <action selector="trackTimingFromButton:withEvent:" destination="-1" eventType="primaryActionTriggered" id="t8i-vj-kG3"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klv-bX-ERL">
+                            <rect key="frame" x="60" y="8" width="345" height="86"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" title="Track Event"/>
+                            <connections>
+                                <action selector="trackEventFromButton:withEvent:" destination="-1" eventType="primaryActionTriggered" id="Ffj-h3-GZW"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="kJY-xJ-ig8" firstAttribute="top" secondItem="klv-bX-ERL" secondAttribute="bottom" constant="8" id="Cvn-DG-dAe"/>
+                        <constraint firstItem="ifm-pi-BU4" firstAttribute="top" secondItem="kJY-xJ-ig8" secondAttribute="bottom" constant="8" id="DhV-sU-9HZ"/>
+                        <constraint firstItem="klv-bX-ERL" firstAttribute="top" secondItem="dsu-CA-fdk" secondAttribute="top" constant="8" id="K0r-bd-edJ"/>
+                        <constraint firstItem="kJY-xJ-ig8" firstAttribute="leading" secondItem="dsu-CA-fdk" secondAttribute="leading" constant="60" symbolic="YES" id="Yt4-ps-giH"/>
+                        <constraint firstItem="ifm-pi-BU4" firstAttribute="leading" secondItem="dsu-CA-fdk" secondAttribute="leading" constant="60" symbolic="YES" id="Z4t-VU-LtW"/>
+                        <constraint firstItem="klv-bX-ERL" firstAttribute="leading" secondItem="dsu-CA-fdk" secondAttribute="leading" constant="60" symbolic="YES" id="bej-hi-PWO"/>
+                        <constraint firstAttribute="trailing" secondItem="kJY-xJ-ig8" secondAttribute="trailing" constant="60" symbolic="YES" id="jft-Ld-9id"/>
+                        <constraint firstAttribute="trailing" secondItem="klv-bX-ERL" secondAttribute="trailing" constant="60" symbolic="YES" id="lgd-SY-a7z"/>
+                        <constraint firstAttribute="trailing" secondItem="ifm-pi-BU4" secondAttribute="trailing" constant="60" symbolic="YES" id="scb-QC-rLZ"/>
+                        <constraint firstAttribute="bottom" secondItem="ifm-pi-BU4" secondAttribute="bottom" constant="8" id="zRQ-GI-O9E"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dsu-CA-fdk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4v5-Ry-CNe"/>
+                <constraint firstItem="dsu-CA-fdk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eOB-Nf-UXq"/>
+            </constraints>
+            <point key="canvasLocation" x="163" y="107"/>
+        </view>
+    </objects>
+</document>

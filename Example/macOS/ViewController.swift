@@ -1,11 +1,11 @@
+import Cocoa
 import GampKit
-import UIKit
 
 struct CustomError: LocalizedError {
   let localizedDescription: String
 }
 
-class ViewController: UIViewController {
+class ViewController: NSViewController {
   let tracker = AnalyticsTracker(configuration: AnalyticsConfiguration(
     trackingIdentifier: "UA-33667276-18",
     applicationName: "GampKitDemo",
@@ -17,11 +17,10 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
+    // Do view setup here.
   }
 
-  @IBAction func trackEvent(fromButton _: UIButton, withEvent event: UIEvent) {
+  @IBAction func trackEvent(withButton _: NSButton) {
     let event = AnalyticsEvent(category: "category", action: "action")
     tracker.track(event) { result in
       if case let .failure(error) = result {
@@ -30,11 +29,11 @@ class ViewController: UIViewController {
     }
   }
 
-  @IBAction func trackTiming(fromButton button: UIButton, withEvent _: UIEvent) {
+  @IBAction func trackTiming(withButton button: NSButton) {
     guard let timing = startTiming?.timeIntervalSinceNow else {
       startTiming = Date()
       DispatchQueue.main.async {
-        button.setTitle("Track Timing", for: .normal)
+        button.title = "Track Timing"
       }
       return
     }
@@ -45,13 +44,13 @@ class ViewController: UIViewController {
       }
       DispatchQueue.main.async {
         button.isEnabled = true
-        button.setTitle("Start Timer", for: .normal)
+        button.title = "Start Timing"
       }
       self.startTiming = nil
     }
   }
 
-  @IBAction func trackException(fromButton _: UIButton, withEvent _: UIEvent) {
+  @IBAction func trackException(withButton _: NSButton) {
     tracker.track(error: CustomError(localizedDescription: "custom error")) { result in
 
       if case let .failure(error) = result {
@@ -59,14 +58,4 @@ class ViewController: UIViewController {
       }
     }
   }
-
-  /*
-   // MARK: - Navigation
-
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // Get the new view controller using segue.destination.
-       // Pass the selected object to the new view controller.
-   }
-   */
 }

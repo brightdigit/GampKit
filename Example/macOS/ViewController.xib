@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ViewController" customModule="macOS_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="7bB-Fy-SZh">
+                    <rect key="frame" x="158" y="89" width="165" height="95"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DEf-Vi-3uC">
+                            <rect key="frame" x="14" y="59" width="137" height="32"/>
+                            <buttonCell key="cell" type="push" title="Track Event" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dEK-G9-UlL">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="trackEventWithButton:" target="-2" id="whp-zb-hdg"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ps-bw-nSc">
+                            <rect key="frame" x="14" y="30" width="137" height="32"/>
+                            <buttonCell key="cell" type="push" title="Start Timing" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qU4-Ko-utS">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="trackTimingWithButton:" target="-2" id="ChQ-ZK-85X"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5XS-UF-omS">
+                            <rect key="frame" x="14" y="1" width="137" height="32"/>
+                            <buttonCell key="cell" type="push" title="Track Exception" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Laj-KT-OMf">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="trackExceptionWithButton:" target="-2" id="lYN-KK-Mbk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="4Ps-bw-nSc" firstAttribute="top" secondItem="DEf-Vi-3uC" secondAttribute="bottom" constant="8" id="GmK-xn-VpI"/>
+                        <constraint firstAttribute="trailing" secondItem="4Ps-bw-nSc" secondAttribute="trailing" constant="20" symbolic="YES" id="HUE-yL-Q38"/>
+                        <constraint firstAttribute="trailing" secondItem="DEf-Vi-3uC" secondAttribute="trailing" constant="20" symbolic="YES" id="TtX-Ec-4To"/>
+                        <constraint firstItem="DEf-Vi-3uC" firstAttribute="leading" secondItem="7bB-Fy-SZh" secondAttribute="leading" constant="20" symbolic="YES" id="Vjt-FG-q98"/>
+                        <constraint firstAttribute="bottom" secondItem="5XS-UF-omS" secondAttribute="bottom" constant="8" id="dbv-VD-VzT"/>
+                        <constraint firstItem="DEf-Vi-3uC" firstAttribute="top" secondItem="7bB-Fy-SZh" secondAttribute="top" constant="8" id="qXj-Cl-U6z"/>
+                        <constraint firstItem="5XS-UF-omS" firstAttribute="top" secondItem="4Ps-bw-nSc" secondAttribute="bottom" constant="8" id="rZf-5k-B6K"/>
+                        <constraint firstAttribute="trailing" secondItem="5XS-UF-omS" secondAttribute="trailing" constant="20" symbolic="YES" id="sfd-bf-Eni"/>
+                        <constraint firstItem="5XS-UF-omS" firstAttribute="leading" secondItem="7bB-Fy-SZh" secondAttribute="leading" constant="20" symbolic="YES" id="syc-Pa-XfV"/>
+                        <constraint firstItem="4Ps-bw-nSc" firstAttribute="leading" secondItem="7bB-Fy-SZh" secondAttribute="leading" constant="20" symbolic="YES" id="y81-mg-WdN"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="7bB-Fy-SZh" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="03p-CM-P0Z"/>
+                <constraint firstItem="7bB-Fy-SZh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Ven-mM-Lrg"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+    </objects>
+</document>

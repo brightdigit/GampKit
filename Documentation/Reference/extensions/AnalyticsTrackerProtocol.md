@@ -29,7 +29,7 @@ public func track(
   time: TimeInterval,
   withCategory category: String,
   withVariable variable: String,
-  withLabel label: String?,
+  withLabel label: String? = nil,
   _ callback: @escaping ((AnalyticsResult) -> Void)
 )
 ```
