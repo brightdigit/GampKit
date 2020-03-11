@@ -23,6 +23,7 @@
 		B323C61324193F3400DEA2F4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323C61224193F3400DEA2F4 /* main.swift */; };
 		B323C61A241941A800DEA2F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323C618241941A800DEA2F4 /* ViewController.swift */; };
 		B323C61D2419554D00DEA2F4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B323C619241941A800DEA2F4 /* ViewController.xib */; };
+		B33B383124197BD70020E98B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33B382F24197A910020E98B /* Interface.storyboard */; };
 		ED3651E771983B4D4FADBCB0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D177987A54DAC8A85ACBB0 /* ExtensionDelegate.swift */; };
 		F2E3D12BF0B19F97DCA5EC6C /* Pods_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7307ECB137E40EC52A90EDF6 /* Pods_iOS_Example.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		B323C61224193F3400DEA2F4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B323C618241941A800DEA2F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B323C619241941A800DEA2F4 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		B33B382F24197A910020E98B /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		C1DDF02D7936D06E4362080A /* tvOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B3B0E8AD561309572FBB4B /* Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension.debug.xcconfig"; path = "Target Support Files/Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension/Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		D06DD9EF993875688A0B25A6 /* macOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				98D177987A54DAC8A85ACBB0 /* ExtensionDelegate.swift */,
+				B33B382F24197A910020E98B /* Interface.storyboard */,
 			);
 			name = Extension;
 			path = watchOS/Extension;
@@ -248,8 +251,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01A23B9FADE9D1E71469920A /* Build configuration list for PBXNativeTarget "tvOS_Example" */;
 			buildPhases = (
-				B323C61C2419554600DEA2F4 /* Resources */,
 				AD2A24BD278E9FCE1DB5B283 /* [CP] Check Pods Manifest.lock */,
+				B323C61C2419554600DEA2F4 /* Resources */,
 				3921A49F4A904B8E168D9788 /* Sources */,
 				1939DDD1B03D0CC18D4C34CB /* Frameworks */,
 				C8E12AF4E308FB158DA7E6EE /* [CP] Embed Pods Frameworks */,
@@ -270,6 +273,7 @@
 				D4B48CA99962089DA1E77933 /* [CP] Check Pods Manifest.lock */,
 				339C667CA4664160769D21FB /* Sources */,
 				9358E2EFE2C7F5605CF8240E /* Frameworks */,
+				B33B382E24197A670020E98B /* Resources */,
 				B857DD7C93B0373E4595AAAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -286,7 +290,7 @@
 			buildConfigurationList = E6DF3213C1233334413B2F7F /* Build configuration list for PBXNativeTarget "iOS_Example.watchOS_Example" */;
 			buildPhases = (
 				9D87F04E4394F76B5C440746 /* [CP] Check Pods Manifest.lock */,
-				88917725ECEB02F59F176E59 /* Sources */,
+				B33B383024197BD30020E98B /* Resources */,
 				4509C7769B59E1EAE497DA01 /* Embed App Extensions */,
 				4F6E7E6C5C8558B91F611526 /* Frameworks */,
 			);
@@ -325,8 +329,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9604A4258367D246D763FFA4 /* Build configuration list for PBXNativeTarget "macOS_Example" */;
 			buildPhases = (
-				B323C6052419314F00DEA2F4 /* Resources */,
 				94E39AAEB4173A0BBE735DB0 /* [CP] Check Pods Manifest.lock */,
+				B323C6052419314F00DEA2F4 /* Resources */,
 				A138D97D1B0A12BA7492CDCE /* Sources */,
 				7A430E93E5D4CA10B8DC5527 /* Frameworks */,
 				EA5334EB0DDFF22B549B9592 /* [CP] Embed Pods Frameworks */,
@@ -392,6 +396,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B323C61D2419554D00DEA2F4 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B33B382E24197A670020E98B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B33B383024197BD30020E98B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B33B383124197BD70020E98B /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,13 +621,6 @@
 			files = (
 				B302EBFA241725EC002525AE /* ViewController.swift in Sources */,
 				3418F58D52C6391002DF50D3 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		88917725ECEB02F59F176E59 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
