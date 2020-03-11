@@ -24,6 +24,7 @@
 		B323C61A241941A800DEA2F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323C618241941A800DEA2F4 /* ViewController.swift */; };
 		B323C61D2419554D00DEA2F4 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B323C619241941A800DEA2F4 /* ViewController.xib */; };
 		B33B383124197BD70020E98B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B33B382F24197A910020E98B /* Interface.storyboard */; };
+		B33B383424197C780020E98B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33B383224197C750020E98B /* InterfaceController.swift */; };
 		ED3651E771983B4D4FADBCB0 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D177987A54DAC8A85ACBB0 /* ExtensionDelegate.swift */; };
 		F2E3D12BF0B19F97DCA5EC6C /* Pods_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7307ECB137E40EC52A90EDF6 /* Pods_iOS_Example.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		B323C618241941A800DEA2F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B323C619241941A800DEA2F4 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		B33B382F24197A910020E98B /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		B33B383224197C750020E98B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		C1DDF02D7936D06E4362080A /* tvOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B3B0E8AD561309572FBB4B /* Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension.debug.xcconfig"; path = "Target Support Files/Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension/Pods-iOS_Example.watchOS_Example.watchOS_Example_Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		D06DD9EF993875688A0B25A6 /* macOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 			children = (
 				98D177987A54DAC8A85ACBB0 /* ExtensionDelegate.swift */,
 				B33B382F24197A910020E98B /* Interface.storyboard */,
+				B33B383224197C750020E98B /* InterfaceController.swift */,
 			);
 			name = Extension;
 			path = watchOS/Extension;
@@ -603,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3651E771983B4D4FADBCB0 /* ExtensionDelegate.swift in Sources */,
+				B33B383424197C780020E98B /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
