@@ -45,7 +45,7 @@ final class AnalyticsURLSessionTests: XCTestCase {
     var actualError: Error?
     let expectedError: Error? = nil
     let url = URL.random()
-    let range: ClosedRange<UInt> = (0 ... 5)
+    let range: ClosedRange<UInt> = (0 ... 3)
     let cachePolicy = URLRequest.CachePolicy(rawValue: UInt.random(in: range))!
     let timeoutInterval = TimeInterval.random()
     let mockSession = MockURLSession(error: expectedError)
