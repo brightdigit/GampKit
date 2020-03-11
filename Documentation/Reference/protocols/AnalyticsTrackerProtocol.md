@@ -12,7 +12,7 @@ public protocol AnalyticsTrackerProtocol
 ### `track(_:_:)`
 
 ```swift
-func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((Error?) -> Void))
+func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
 > Tracks the trackable item.

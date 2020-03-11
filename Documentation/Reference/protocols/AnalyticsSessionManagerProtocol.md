@@ -12,7 +12,7 @@ public protocol AnalyticsSessionManagerProtocol
 ### `send(_:_:)`
 
 ```swift
-func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void))
+func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
 >    Creates the request and sends the request based on the session.

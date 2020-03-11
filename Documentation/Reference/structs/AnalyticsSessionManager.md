@@ -46,7 +46,7 @@ public init(session: SessionType, requestBuilder: AnalyticsRequestBuilderProtoco
 ### `send(_:_:)`
 
 ```swift
-public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((Error?) -> Void))
+public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
 >    Creates the request and sends the request based on the session.

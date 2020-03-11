@@ -6,7 +6,7 @@
 ### `dataTask(with:_:)`
 
 ```swift
-public func dataTask(with request: URLRequest, _ completion: @escaping (Error?) -> Void) -> URLSessionableDataTask
+public func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
 ```
 
 #### Parameters

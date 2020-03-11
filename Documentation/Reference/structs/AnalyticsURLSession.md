@@ -76,7 +76,7 @@ public func request() -> URLRequest
 ### `begin(request:_:)`
 
 ```swift
-public func begin(request: URLRequest, _ completion: @escaping ((Error?) -> Void))
+public func begin(request: URLRequest, _ completion: @escaping ((AnalyticsResult) -> Void))
 ```
 
 > Makes the request.
