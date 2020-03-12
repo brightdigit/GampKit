@@ -26,104 +26,81 @@
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 
-> Additional information or tagline
+> Using Google Analytics for Tracking Events, Timing, Errors and more
 
-A brief description of your project, what it is used for and how does life get
-awesome when someone starts to use it.
+Rather than downloading large amounts of libraries framework in order to understand how your app is used, you can use this library for easy data. The library works directly with Google Analytics using their Measure Protocol API. See all your data right from the Google Analytics dashboard.
 
 ## Features
 
-What's all the bells and whistles this project can perform?
-* What's the main functionality
-* You can also do another thing
-* If you get really randy, you can even do this
+Included with this library is the ability to track:
+
+- [x] Events with Custom Data
+- [x] Timing of various operations
+- [x] Swift Errors and NSExceptions
+- [x] Custom actions such screens and transactions
 
 ## Reqirements
 
-## Installing / Getting started
+- iOS 8.0+ / macOS 10.9+ / tvOS 9.0+ / watchOS 2.0+ / Linux 
+- Xcode 10.2+
+- Swift 5+
 
-A quick introduction of the minimal setup you need to get a hello world up &
-running.
+## Installing 
 
-```shell
-packagemanager install awesome-project
-awesome-project start
-awesome-project "Do something!"  # prints "Nah."
+### CocoaPods
+
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate GampKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+pod 'GampKit', '~> 0.0.1'
 ```
-
-Here you should say what actually happens when you execute the code above.
-
 
 ### Swift Package Manager
 
-### Cocoapods
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. GampKit does support its use on supported platforms.
 
-### Initial Configuration
+Once you have your Swift package set up, adding GampKit as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
-Some projects require initial configuration (e.g. access tokens or keys, `npm i`).
-This is the section where you would document those requirements.
-
-## Developing
-
-Here's a brief intro about what a developer must do in order to start developing
-the project further:
-
-```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
-packagemanager install
+```swift
+dependencies: [
+    .package(url: "https://github.com/brightdigit/GampKit.git", .upToNextMajor(from: "0.0.1"))
+]
 ```
 
-And state what happens step-by-step.
+## Usage
 
-### Building
+Before moving forward make sure to setup a property under your Google Analytics account. With your new property for your application, you will need your _tracking identifier_. Typically a _tracking identifier_ has a format of `UA-XXXXXXXXX-XX`. You will need the _tracking identifier_ as well as the:
 
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here:
+- **Application Name**
+- **Application Version**
+- **Client Identifier** - this should be a ananymous UUID created on application installation and saved to future use on launch
 
-```shell
-./configure
-make
-make install
+### Configuration
+
+In order to begin tracking, you will need to setup a `AnalyticsTracker` with the configuration of your application using a `AnalyticsConfiguration` object:
+
+```swift
+  let tracker = AnalyticsTracker(configuration: AnalyticsConfiguration(
+    trackingIdentifier: "UA-XXXXXXXX-XX",
+    applicationName: "GampKitDemo",
+    applicationVersion: "1.0",
+    clientIdentifier: clientIdentifer
+  ))
 ```
 
-Here again you should state what actually happens when the code above gets
-executed.
+Now that you have setup your `AnalyticsTracker`, let's being tracking events.
 
-### Deploying / Publishing
+### Tracking
 
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
+There are three types of tracking objects: Events, Timing, and Exceptions.
 
-```shell
-packagemanager deploy awesome-project -s server.com -u username -p password
-```
+#### Events
 
-And again you'd need to tell what the previous code actually does.
+#### Timing
 
+#### Errors and Exceptions
 
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when
-using the project.
-
-#### Argument 1
-Type: `String`  
-Default: `'default value'`
-
-State what an argument does and how you can use it. If needed, you can provide
-an example below.
-
-Example:
-```bash
-awesome-project "Some other value"  # Prints "You're nailing this readme!"
-```
-
-#### Argument 2
-Type: `Number|Boolean`  
-Default: 100
-
-Copy-paste as many of these as you need.
+#### Custom Items
 
 ## Contributing
 
@@ -147,6 +124,7 @@ Even though this information can be found inside the project on machine-readable
 format like in a .json file, it's good to include a summary of most useful
 links to humans using your project. You can include links like:
 
+https://developers.google.com/analytics/devguides/collection/protocol/v1
 - Project homepage: https://your.github.com/awesome-project/
 - Repository: https://github.com/your/awesome-project/
 - Issue tracker: https://github.com/your/awesome-project/issues

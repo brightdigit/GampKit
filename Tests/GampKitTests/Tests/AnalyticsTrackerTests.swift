@@ -11,7 +11,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     let category = String.random()
     let variable = String.random()
     let label = String.random()
-    let clientIdentifier = String.random()
+    let clientIdentifier = UUID()
     let userLanguage = "en-us"
     let config = AnalyticsConfiguration(
       trackingIdentifier: trackingIdentifier,
@@ -48,7 +48,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       keys += 1
       XCTAssertEqual(AnalyticsHitType.timing, parameters[.hitType] as? AnalyticsHitType)
       keys += 1
-      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? String)
+      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? UUID)
       keys += 1
       XCTAssertEqual(userLanguage, parameters[.userLanguage] as? String)
       keys += 1
@@ -67,7 +67,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     let category = String.random()
     let action = String.random()
     let label = String.random()
-    let clientIdentifier = String.random()
+    let clientIdentifier = UUID()
     let userLanguage = "en-us"
     let config = AnalyticsConfiguration(
       trackingIdentifier: trackingIdentifier,
@@ -104,7 +104,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       keys += 1
       XCTAssertEqual(AnalyticsHitType.event, parameters[.hitType] as? AnalyticsHitType)
       keys += 1
-      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? String)
+      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? UUID)
       keys += 1
       XCTAssertEqual(userLanguage, parameters[.userLanguage] as? String)
       keys += 1
@@ -120,7 +120,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     let applicationName = String.random()
     let applicationVersion = String.random()
     let exceptionDescription = String.random()
-    let clientIdentifier = String.random()
+    let clientIdentifier = UUID()
     let userLanguage = "en-us"
     let config = AnalyticsConfiguration(
       trackingIdentifier: trackingIdentifier,
@@ -154,7 +154,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       keys += 1
       XCTAssertEqual(AnalyticsHitType.exception, parameters[.hitType] as? AnalyticsHitType)
       keys += 1
-      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? String)
+      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? UUID)
       keys += 1
       XCTAssertEqual(userLanguage, parameters[.userLanguage] as? String)
       keys += 1
@@ -178,7 +178,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     let trackingIdentifier = String.random()
     let applicationName = String.random()
     let applicationVersion = String.random()
-    let clientIdentifier = String.random()
+    let clientIdentifier = UUID()
 
     let key = Set(AnalyticsParameterKey.allCases)
       .subtracting(AnalyticsTrackerTests.configurationParameterKeys)
@@ -211,7 +211,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       keys += 1
       XCTAssertEqual(applicationVersion, parameters[.applicationVersion] as? String)
       keys += 1
-      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? String)
+      XCTAssertEqual(clientIdentifier, parameters[.clientId] as? UUID)
       keys += 1
       XCTAssertEqual(Locale.preferredLanguages.first, parameters[.userLanguage] as? String)
       keys += 1
@@ -234,7 +234,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       //    let category = String.random()
       //    let action = String.random()
       //    let label = String.random()
-      let clientIdentifier = String.random()
+      let clientIdentifier = UUID()
       let userLanguage = "en-us"
       let exceptionName = NSExceptionName(String.random())
       let exceptionReason = String.random()
@@ -272,7 +272,7 @@ final class AnalyticsTrackerTests: XCTestCase {
         keys += 1
         XCTAssertEqual(AnalyticsHitType.exception, parameters[.hitType] as? AnalyticsHitType)
         keys += 1
-        XCTAssertEqual(clientIdentifier, parameters[.clientId] as? String)
+        XCTAssertEqual(clientIdentifier, parameters[.clientId] as? UUID)
         keys += 1
         XCTAssertEqual(userLanguage, parameters[.userLanguage] as? String)
         keys += 1
@@ -287,7 +287,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     let trackingIdentifier = String.random()
     let applicationName = String.random()
     let applicationVersion = String.random()
-    let clientIdentifier = String.random()
+    let clientIdentifier = UUID()
     let userLanguage = "en-us"
     let config = AnalyticsConfiguration(
       trackingIdentifier: trackingIdentifier,

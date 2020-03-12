@@ -19,7 +19,7 @@ public protocol AnalyticsConfigurationProtocol: AnalyticsParameterable {
   /**
    Anonymous client identifier for Google Analytics.
    */
-  var clientIdentifier: String { get }
+  var clientIdentifier: UUID { get }
   /**
    Static version number. `1`
    */
