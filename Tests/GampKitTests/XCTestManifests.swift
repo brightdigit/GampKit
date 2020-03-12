@@ -51,6 +51,7 @@
       ("testEvent", testEvent),
       ("testException", testException),
       ("testInit", testInit),
+      ("testInitDebugMode", testInitDebugMode),
       ("testTime", testTime)
     ]
   }

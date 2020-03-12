@@ -306,4 +306,33 @@ final class AnalyticsTrackerTests: XCTestCase {
     XCTAssertEqual(manager.session.url, AnalyticsURLs.default)
     XCTAssertEqual(manager.session.timeoutInterval, 5.0)
   }
+
+  func testInitDebugMode() {
+    let trackingIdentifier = String.random()
+    let applicationName = String.random()
+    let applicationVersion = String.random()
+    let clientIdentifier = UUID()
+    let userLanguage = "en-us"
+    let config = AnalyticsConfiguration(
+      trackingIdentifier: trackingIdentifier,
+      applicationName: applicationName,
+      applicationVersion: applicationVersion,
+      clientIdentifier: clientIdentifier,
+      userLanguage: userLanguage
+    )
+    let debugModes: [(Bool?, URL)] = [
+      (nil, AnalyticsURLs.default),
+      (true, AnalyticsURLs.debug),
+      (false, AnalyticsURLs.release)
+    ]
+
+    for (debugMode, url) in debugModes {
+      let tracker = AnalyticsTracker(configuration: config, debugMode: debugMode)
+      guard let sessionManager = tracker.sessionManager as? AnalyticsSessionManager<AnalyticsURLSession> else {
+        XCTFail()
+        continue
+      }
+      XCTAssertEqual(sessionManager.session.url, url)
+    }
+  }
 }
