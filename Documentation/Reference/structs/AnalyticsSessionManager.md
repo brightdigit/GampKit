@@ -3,47 +3,59 @@
 # `AnalyticsSessionManager`
 
 ```swift
-public struct AnalyticsSessionManager: AnalyticsSessionManagerProtocol
+public struct AnalyticsSessionManager<SessionType: Session>: AnalyticsSessionManagerProtocol
 ```
+
+> Manages the sending of parameters, session, and parameters.
 
 ## Properties
-### `baseUrl`
-
-```swift
-public let baseUrl: URL
-```
-
-### `timeoutInterval`
-
-```swift
-public let timeoutInterval: TimeInterval = 5
-```
-
 ### `session`
 
 ```swift
-public let session: URLSession
+public let session: SessionType
 ```
+
+> The session to call and make requests from.
+
+### `requestBuilder`
+
+```swift
+public let requestBuilder: AnalyticsRequestBuilderProtocol
+```
+
+> Builds requests based on the session.
 
 ## Methods
-### `createSession(withDelegate:inQueue:withUserAgent:)`
+### `init(session:requestBuilder:)`
 
 ```swift
-public static func createSession(
-  withDelegate delegate: URLSessionDelegate? = nil,
-  inQueue queue: OperationQueue? = nil,
-  withUserAgent userAgent: String? = nil
-) -> URLSession
+public init(session: SessionType, requestBuilder: AnalyticsRequestBuilderProtocol? = nil)
 ```
 
-### `init(baseUrl:)`
+> Creates a session manager based on the session and request builder.
+>  - Parameter session: The session for analytics.
+>  - Parameter requestBuilder: Builds the request for the session.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| session | The session for analytics. |
+| requestBuilder | Builds the request for the session. |
+
+### `send(_:_:)`
 
 ```swift
-public init(baseUrl: URL? = nil)
+public func send(_ parameters: AnalyticsParameterDictionary, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
-### `send(_:)`
+>    Creates the request and sends the request based on the session.
+> - Parameter parameters: The parameters to send.
+> - Parameter callback: Callback to call on completion.
 
-```swift
-public func send(_ parameters: AnalyticsParameterDictionary)
-```
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| parameters | The parameters to send. |
+| callback | Callback to call on completion. |

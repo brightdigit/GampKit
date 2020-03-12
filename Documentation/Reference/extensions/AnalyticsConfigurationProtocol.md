@@ -2,9 +2,11 @@
 
 # `AnalyticsConfigurationProtocol`
 
-## Properties
-### `parameters`
+## Methods
+### `parameters()`
 
 ```swift
-var parameters: AnalyticsParameterDictionary
+func parameters() -> AnalyticsParameterDictionary
 ```
+
+> Creates a parameter dictionary based on the properties of the value.

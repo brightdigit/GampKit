@@ -6,26 +6,56 @@
 public struct AnalyticsTracker: AnalyticsTrackerProtocol
 ```
 
+> Tracker for sending items to analytics.
+
 ## Methods
-### `track(error:isFatal:)`
+### `init(configuration:sessionManager:)`
 
 ```swift
-public func track(error: Error, isFatal: Bool)
+public init(configuration: AnalyticsConfigurationProtocol, sessionManager: AnalyticsSessionManagerProtocol? = nil)
 ```
 
-### `track(event:)`
+> Creates a tracker based on the configuration and session manager.
+> - Parameter configuration: The static configuration for the tracker.
+> - Parameter sessionManager: The session manager for sending data.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| configuration | The static configuration for the tracker. |
+| sessionManager | The session manager for sending data. |
+
+### `init(configuration:debugMode:)`
 
 ```swift
-public func track(event: AnalyticsEventProtocol)
+public init(configuration: AnalyticsConfigurationProtocol, debugMode: Bool?)
 ```
 
-### `track(time:withCategory:withVariable:withLabel:)`
+> Creates a tracker based on the configuration and session manager.
+> - Parameter configuration: The static configuration for the tracker.
+> - Parameter debugMode: True, to use the validation server; False, use the actual tracking url; Nil, use the default server based on build.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| configuration | The static configuration for the tracker. |
+| debugMode | True, to use the validation server; False, use the actual tracking url; Nil, use the default server based on build. |
+
+### `track(_:_:)`
 
 ```swift
-public func track(
-  time: TimeInterval,
-  withCategory category: String,
-  withVariable variable: String,
-  withLabel label: String?
-)
+public func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
+
+> Tracks the trackable item.
+> - Parameter trackable: The trackable item.
+> - Parameter callback: What to call on completion.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| trackable | The trackable item. |
+| callback | What to call on completion. |

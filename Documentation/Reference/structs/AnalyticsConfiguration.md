@@ -6,6 +6,8 @@
 public struct AnalyticsConfiguration: AnalyticsConfigurationProtocol
 ```
 
+> Static configuration to use for tracking the application.
+
 ## Properties
 ### `version`
 
@@ -13,17 +15,23 @@ public struct AnalyticsConfiguration: AnalyticsConfigurationProtocol
 public let version = 1
 ```
 
+> Static version number. `1`
+
 ### `trackingIdentifier`
 
 ```swift
 public let trackingIdentifier: String
 ```
 
+> Tracking identifier for Google Analytics.
+
 ### `clientIdentifier`
 
 ```swift
-public let clientIdentifier: String
+public let clientIdentifier: UUID
 ```
+
+> Anonymous client identifier for Google Analytics.
 
 ### `applicationName`
 
@@ -31,11 +39,15 @@ public let clientIdentifier: String
 public let applicationName: String
 ```
 
+> Application name.
+
 ### `applicationVersion`
 
 ```swift
 public let applicationVersion: String
 ```
+
+> Application version.
 
 ### `userLanguage`
 
@@ -43,22 +55,46 @@ public let applicationVersion: String
 public let userLanguage: String?
 ```
 
+> (Optional) User language.
+
 ### `customParameters`
 
 ```swift
 public let customParameters: AnalyticsParameterDictionary
 ```
 
+> (Optional) Custom parameters to attach to all tracking info.
+
 ## Methods
-### `init(trackingIdentifier:applicationName:applicationVersion:customParameters:clientIdentifierDelegate:userLanguage:)`
+### `init(trackingIdentifier:applicationName:applicationVersion:clientIdentifier:customParameters:userLanguage:)`
 
 ```swift
 public init(
   trackingIdentifier: String,
   applicationName: String,
   applicationVersion: String,
+  clientIdentifier: UUID,
   customParameters: AnalyticsParameterDictionary? = nil,
-  clientIdentifierDelegate: ClientIdentifierProtocol? = nil,
   userLanguage: String? = nil
 )
 ```
+
+> Creates the URL Session to use for analytics.
+> - Parameters:
+>   - trackingIdentifier: Tracking identifier for Google Analytics.
+>   - applicationName: Application name.
+>   - applicationVersion: Application version.
+>   - clientIdentifier: Anonymous client identifier for Google Analytics.
+>   - customParameters: (Optional) Custom parameters to attach to all tracking info.
+>   - userLanguage: (Optional) User language. Uses first preferred locale, if not set.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| trackingIdentifier | Tracking identifier for Google Analytics. |
+| applicationName | Application name. |
+| applicationVersion | Application version. |
+| clientIdentifier | Anonymous client identifier for Google Analytics. |
+| customParameters | (Optional) Custom parameters to attach to all tracking info. |
+| userLanguage | (Optional) User language. Uses first preferred locale, if not set. |

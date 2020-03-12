@@ -6,21 +6,22 @@
 public protocol AnalyticsTrackerProtocol
 ```
 
+> Tracker for sending items to analytics.
+
 ## Methods
-### `track(time:withCategory:withVariable:withLabel:)`
+### `track(_:_:)`
 
 ```swift
-func track(time: TimeInterval, withCategory category: String, withVariable variable: String, withLabel label: String?)
+func track(_ trackable: AnalyticsTrackable, _ callback: @escaping ((AnalyticsResult) -> Void))
 ```
 
-### `track(event:)`
+> Tracks the trackable item.
+> - Parameter trackable: The trackable item.
+> - Parameter callback: What to call on completion.
 
-```swift
-func track(event: AnalyticsEventProtocol)
-```
+#### Parameters
 
-### `track(error:isFatal:)`
-
-```swift
-func track(error: Error, isFatal: Bool)
-```
+| Name | Description |
+| ---- | ----------- |
+| trackable | The trackable item. |
+| callback | What to call on completion. |

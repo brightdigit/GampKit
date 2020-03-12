@@ -6,12 +6,32 @@
 public enum AnalyticsHitType: String, CustomStringConvertible
 ```
 
+> Hit type for analytics.
+
 ## Cases
 ### `timing`
 
 ```swift
-case timing, event, exception
+case timing
 ```
+
+> Timing Hit Type.
+
+### `event`
+
+```swift
+case event
+```
+
+> Event Hit Type.
+
+### `exception`
+
+```swift
+case exception
+```
+
+> Exception Hit Type.
 
 ## Properties
 ### `description`
