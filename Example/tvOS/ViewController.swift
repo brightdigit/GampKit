@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     trackingIdentifier: "UA-33667276-18",
     applicationName: "GampKitDemo",
     applicationVersion: "1.0",
-    clientIdentifier: UUID().uuidString
+    clientIdentifier: UUID()
   ))
 
   var startTiming: Date?
@@ -53,7 +53,6 @@ class ViewController: UIViewController {
 
   @IBAction func trackException(fromButton _: UIButton, withEvent _: UIEvent) {
     tracker.track(error: CustomError(localizedDescription: "custom error")) { result in
-
       if case let .failure(error) = result {
         debugPrint(error)
       }

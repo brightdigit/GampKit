@@ -23,6 +23,22 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
   }
 
   /**
+   Creates a tracker based on the configuration and session manager.
+   - Parameter configuration: The static configuration for the tracker.
+   - Parameter debugMode: True, to use the validation server; False, use the actual tracking url; Nil, use the default server based on build.
+   */
+  public init(configuration: AnalyticsConfigurationProtocol, debugMode: Bool?) {
+    self.configuration = configuration
+    let url : URL
+    switch debugMode {
+    case .none: url = AnalyticsURLs.default
+    case .some(false): url = AnalyticsURLs.release
+    case .some(true): url = AnalyticsURLs.debug
+    }
+    self.sessionManager = AnalyticsSessionManager(session: AnalyticsURLSession(url : url))
+  }
+  
+  /**
    Tracks the trackable item.
    - Parameter trackable: The trackable item.
    - Parameter callback: What to call on completion.

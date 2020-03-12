@@ -1,4 +1,4 @@
-![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
+![Logo of the project](https://raw.githubusercontent.com/brightdigit/GampKit/master/logo.png)
 
 # GampKit
 
@@ -69,6 +69,8 @@ dependencies: [
 
 ## Usage
 
+### [API Documentation](/Documentation/Reference/README.md)
+
 Before moving forward make sure to setup a property under your Google Analytics account. With your new property for your application, you will need your _tracking identifier_. Typically a _tracking identifier_ has a format of `UA-XXXXXXXXX-XX`. You will need the _tracking identifier_ as well as the:
 
 - **Application Name**
@@ -96,54 +98,119 @@ There are three types of tracking objects: Events, Timing, and Exceptions.
 
 #### Events
 
+For tracking events, you can create an `AnalyticsEvent` with a category and action:
+
+```swift
+    let event = AnalyticsEvent(category: "category", action: "action")
+    tracker.track(event) { result in
+      if case let .failure(error) = result {
+        debugPrint(error)
+      }
+    }
+```
+
+You can read [more details about events on the Google Analytics Measurement Protocol documentation.](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#event)
+
 #### Timing
+
+For tracking timing, you can create an `AnalyticsTiming` or use `AnalyticsTracker.track(time:...)` with a category and action:
+
+```swift
+    let start : Date
+    ...
+    let timing = start.timeIntervalSinceNow
+    tracker.track(time: -timing, withCategory: "jsonLoader", withVariable: "load") { result in
+      if case let .failure(error) = result {
+        debugPrint(error)
+      }
+    }
+```
+
+You can read [more details about timing on the Google Analytics Measurement Protocol documentation.](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#usertiming)
 
 #### Errors and Exceptions
 
+For tracking errors and exceptions, you can use `AnalyticsTracker.track(error:...)`:
+
+```swift
+    do {
+      try doSomething()
+    } catch let error {
+      tracker.track(error: error, isFatal: false) { result in
+        if case let .failure(error) = result {
+          debugPrint(error)
+        }
+      }
+    }
+```
+
+You can read [more details about events on the Google Analytics Measurement Protocol documentation.](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#exception)
+
 #### Custom Items
 
-## Contributing
+You can also track custom items by implementing `AnalyticsTrackable`. This requires the implmentation of two methods:
 
-When you publish something open source, one of the greatest motivations is that
-anyone can just jump in and start contributing to your project.
+```swift
+  var hitType: AnalyticsHitType {
+    get
+  }
 
-These paragraphs are meant to welcome those kind souls to feel that they are
-needed. You should state something like:
+  func parameters() -> AnalyticsParameterDictionary
+```
 
-"If you'd like to contribute, please fork the repository and use a feature
-branch. Pull requests are warmly welcome."
+An `AnalyticsParameterDictionary` is simply a dictionary with keys of type `AnalyticsParameterKey`.
 
-If there's anything else the developer needs to know (e.g. the code style
-guide), you should link it here. If there's a lot of things to take into
-consideration, it is common to separate this section to its own file called
-`CONTRIBUTING.md` (or similar). If so, you should say that it exists here.
+```swift
+public typealias AnalyticsParameterDictionary = [AnalyticsParameterKey: Any]
+
+public enum AnalyticsParameterKey: String, CaseIterable {
+  case hitType = "t", version = "v", trackingId = "tid",
+    userTimingCategory = "utc", userTimingLabel = "utl", timing = "utt", clientId = "cid",
+    userTimingVariable = "utv",
+    applicationName = "an", applicationVersion = "av", eventAction = "ea",
+    eventCategory = "ec", eventLabel = "el", eventValue = "ev",
+    userLanguage = "ul", operatingSystemVersion = "cd1", model = "cd2",
+    exceptionDescription = "exd", exceptionFatal = "exf"
+}
+```
+
+The rules regarding what are required based on hit type and each parameter is located in the [Google Analytics Measurement Protocol Parameter Reference.](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)
+
+### Debugging vs. Release
+
+By default, the library will either use the Google Analytics Measurement Protocol API url for validation purposes or the actual url depending on whether the build is `DEBUG` or `RELEASE`. When using the validation server, no items will be actually be tracked only validated. You can override this in one of two ways:
+
+1. Supply a custom URL for the AnalyticsSessionManager
+
+  ```swift
+    let tracker = AnalyticsTracker(configuration: AnalyticsConfiguration(
+      trackingIdentifier: "UA-XXXXXXXX-XX",
+      applicationName: "GampKitDemo",
+      applicationVersion: "1.0",
+      clientIdentifier: clientIdentifer
+    ), sessionManager: AnalyticsURLSession(url : url))
+  ```
+
+2. Use the debug mode flag for using the validation server 
+
+  ```swift
+    let tracker = AnalyticsTracker(configuration: AnalyticsConfiguration(
+      trackingIdentifier: "UA-XXXXXXXX-XX",
+      applicationName: "GampKitDemo",
+      applicationVersion: "1.0",
+      clientIdentifier: clientIdentifer
+    ), debugMode: false)
+  ```
 
 ## Links
 
-Even though this information can be found inside the project on machine-readable
-format like in a .json file, it's good to include a summary of most useful
-links to humans using your project. You can include links like:
+- Google Analytics Measurement Protocol API
+  - https://developers.google.com/analytics/devguides/collection/protocol/v1
+- Repository
+  - https://github.com/brightdigit/GampKit/
+- Issue tracker
+  - https://github.com/brightdigit/GampKit/issues
 
-https://developers.google.com/analytics/devguides/collection/protocol/v1
-- Project homepage: https://your.github.com/awesome-project/
-- Repository: https://github.com/your/awesome-project/
-- Issue tracker: https://github.com/your/awesome-project/issues
-  - In case of sensitive bugs like security vulnerabilities, please contact
-    my@email.com directly instead of using issue tracker. We value your effort
-    to improve the security and privacy of this project!
-- Related projects:
-  - Your other project: https://github.com/your/other-project/
-  - Someone else's project: https://github.com/someones/awesome-project/
+## License
 
-## Donations 
-
-## Licensing
-
-One really important part: Give your project a proper license. Here you should
-state what the license is and how to find the text version of the license.
-Something like:
-
-"The code in this project is licensed under MIT license."
-
-## Code Documentation
-[Documentation Here](/Documentation/Reference/README.md)
+GampKit is released under the MIT license. [See LICENSE](https://github.com/brightdigit/GampKit/blob/master/LICENSE) for details.

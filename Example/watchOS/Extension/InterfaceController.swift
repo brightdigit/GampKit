@@ -29,7 +29,7 @@ class InterfaceController: WKInterfaceController {
     trackingIdentifier: "UA-33667276-18",
     applicationName: "GampKitDemo",
     applicationVersion: "1.0",
-    clientIdentifier: UUID().uuidString
+    clientIdentifier: UUID()
   ))
   static var startTiming: Date?
   let rowActions: [TableRowData] = [

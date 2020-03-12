@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     trackingIdentifier: "UA-33667276-18",
     applicationName: "GampKitDemo",
     applicationVersion: "1.0",
-    clientIdentifier: UUID().uuidString
+    clientIdentifier: UUID()
   ))
 
   var startTiming: Date?
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
   }
 
   @IBAction func trackEvent(fromButton _: UIButton, withEvent event: UIEvent) {
-    let event = AnalyticsEvent(category: "category", action: "action")
+    let event = AnalyticsEvent(category: "video", action: "play")
     tracker.track(event) { result in
       if case let .failure(error) = result {
         debugPrint(error)

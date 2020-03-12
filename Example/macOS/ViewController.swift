@@ -10,7 +10,7 @@ class ViewController: NSViewController {
     trackingIdentifier: "UA-33667276-18",
     applicationName: "GampKitDemo",
     applicationVersion: "1.0",
-    clientIdentifier: UUID().uuidString
+    clientIdentifier: UUID()
   ))
 
   var startTiming: Date?
