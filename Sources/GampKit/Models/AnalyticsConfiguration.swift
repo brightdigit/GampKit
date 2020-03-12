@@ -24,7 +24,7 @@ public struct AnalyticsConfiguration: AnalyticsConfigurationProtocol {
   /**
    Anonymous client identifier for Google Analytics.
    */
-  public let clientIdentifier: String
+  public let clientIdentifier: UUID
 
   /**
    Application name.
@@ -60,7 +60,7 @@ public struct AnalyticsConfiguration: AnalyticsConfigurationProtocol {
     trackingIdentifier: String,
     applicationName: String,
     applicationVersion: String,
-    clientIdentifier: String,
+    clientIdentifier: UUID,
     customParameters: AnalyticsParameterDictionary? = nil,
     userLanguage: String? = nil
   ) {

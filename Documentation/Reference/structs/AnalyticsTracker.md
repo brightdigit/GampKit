@@ -26,6 +26,23 @@ public init(configuration: AnalyticsConfigurationProtocol, sessionManager: Analy
 | configuration | The static configuration for the tracker. |
 | sessionManager | The session manager for sending data. |
 
+### `init(configuration:debugMode:)`
+
+```swift
+public init(configuration: AnalyticsConfigurationProtocol, debugMode: Bool?)
+```
+
+> Creates a tracker based on the configuration and session manager.
+> - Parameter configuration: The static configuration for the tracker.
+> - Parameter debugMode: True, to use the validation server; False, use the actual tracking url; Nil, use the default server based on build.
+
+#### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| configuration | The static configuration for the tracker. |
+| debugMode | True, to use the validation server; False, use the actual tracking url; Nil, use the default server based on build. |
+
 ### `track(_:_:)`
 
 ```swift
