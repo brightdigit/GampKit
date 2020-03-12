@@ -36,7 +36,7 @@ var trackingIdentifier: String
 ### `clientIdentifier`
 
 ```swift
-var clientIdentifier: String
+var clientIdentifier: UUID
 ```
 
 > Anonymous client identifier for Google Analytics.
