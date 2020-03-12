@@ -29,15 +29,15 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
    */
   public init(configuration: AnalyticsConfigurationProtocol, debugMode: Bool?) {
     self.configuration = configuration
-    let url : URL
+    let url: URL
     switch debugMode {
     case .none: url = AnalyticsURLs.default
     case .some(false): url = AnalyticsURLs.release
     case .some(true): url = AnalyticsURLs.debug
     }
-    self.sessionManager = AnalyticsSessionManager(session: AnalyticsURLSession(url : url))
+    sessionManager = AnalyticsSessionManager(session: AnalyticsURLSession(url: url))
   }
-  
+
   /**
    Tracks the trackable item.
    - Parameter trackable: The trackable item.
