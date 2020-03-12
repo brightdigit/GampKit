@@ -6,7 +6,7 @@
 [![Twitter](https://img.shields.io/badge/twitter-@brightdigit-blue.svg?style=flat)](http://twitter.com/brightdigit)
 ![GitHub](https://img.shields.io/github/license/brightdigit/GampKit)
 ![GitHub issues](https://img.shields.io/github/issues/brightdigit/GampKit)
-[![Beerpay](https://img.shields.io/beerpay/brightdigit/GampKit.svg?maxAge=2592000)](https://beerpay.io/brightdigit/GampKit)
+[![Beerpay](https://img.shields.io/beerpay/brightdigit/GampKit.svg)](https://beerpay.io/brightdigit/GampKit)
 
 [![macOS](https://github.com/brightdigit/GampKit/workflows/macOS/badge.svg)](https://github.com/brightdigit/GampKit/actions?query=workflow%3AmacOS)
 [![ubuntu](https://github.com/brightdigit/GampKit/workflows/ubuntu/badge.svg)](https://github.com/brightdigit/GampKit/actions?query=workflow%3Aubuntu)
