@@ -28,7 +28,7 @@ public let trackingIdentifier: String
 ### `clientIdentifier`
 
 ```swift
-public let clientIdentifier: String
+public let clientIdentifier: UUID
 ```
 
 > Anonymous client identifier for Google Analytics.
@@ -73,7 +73,7 @@ public init(
   trackingIdentifier: String,
   applicationName: String,
   applicationVersion: String,
-  clientIdentifier: String,
+  clientIdentifier: UUID,
   customParameters: AnalyticsParameterDictionary? = nil,
   userLanguage: String? = nil
 )
