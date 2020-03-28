@@ -21,7 +21,6 @@
 -   [AnalyticsConfiguration](structs/AnalyticsConfiguration.md)
 -   [AnalyticsEvent](structs/AnalyticsEvent.md)
 -   [AnalyticsException](structs/AnalyticsException.md)
--   [AnalyticsHitParserMessage](structs/AnalyticsHitParserMessage.md)
 -   [AnalyticsHitParsingResult](structs/AnalyticsHitParsingResult.md)
 -   [AnalyticsParameterEncoder](structs/AnalyticsParameterEncoder.md)
 -   [AnalyticsRequestBuilder](structs/AnalyticsRequestBuilder.md)
@@ -33,6 +32,10 @@
 -   [AnalyticsURLs](structs/AnalyticsURLs.md)
 -   [AnalyticsValidation](structs/AnalyticsValidation.md)
 -   [StringEncodingError](structs/StringEncodingError.md)
+
+## Classes
+
+-   [AnalyticsHitParserMessage](classes/AnalyticsHitParserMessage.md)
 
 ## Enums
 

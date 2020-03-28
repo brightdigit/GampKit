@@ -7,6 +7,12 @@ public struct AnalyticsResultDecoder: AnalyticsResultDecoderProtocol
 ```
 
 ## Methods
+### `init()`
+
+```swift
+public init()
+```
+
 ### `decode(_:)`
 
 ```swift
