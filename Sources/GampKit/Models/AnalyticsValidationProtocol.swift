@@ -1,6 +1,6 @@
-public typealias AnalyticsResult = Result<AnalyticsValidationProtocol?, Error>
+public typealias AnalyticsResult = Result<AnalyticsValidation?, Error>
 
-public protocol AnalyticsValidationHitProtocol {}
+//public protocol AnalyticsValidationHitProtocol {}
 
 public struct AnalyticsHitPath {
   let method: String
@@ -26,8 +26,8 @@ public struct AnalyticsHitParsingResult {
   let parserMessage: [AnalyticsHitParserMessage]
 }
 
-public protocol AnalyticsValidationProtocol {
-  var hitParsingResult: [AnalyticsHitParsingResult] { get }
+public struct AnalyticsValidation {
+  let hitParsingResult: [AnalyticsHitParsingResult]
 }
 
 public extension AnalyticsResult {
