@@ -45,9 +45,12 @@ final class AnalyticsResultDecoderTests: XCTestCase {
     let decoder = AnalyticsResultDecoder()
     let validation = AnalyticsValidation(
       hitParsingResult: [AnalyticsHitParsingResult(
-        valid: true, hit: String.random(), parserMessage: [
-          AnalyticsHitParserMessage(messageType: .info, description: String.random())
-        ]
+        valid: true,
+        hit: String.random(),
+        parserMessage: [AnalyticsHitParserMessage(
+          messageType: .info,
+          description: String.random()
+        )]
       )])
     let data: Data
     do {
