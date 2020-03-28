@@ -9,6 +9,12 @@ public struct AnalyticsParameterEncoder: AnalyticsParameterEncoderProtocol
 > Encodes the parameters for use by the analytics tracker.
 
 ## Methods
+### `init()`
+
+```swift
+public init()
+```
+
 ### `encode(parameters:)`
 
 ```swift
