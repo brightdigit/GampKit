@@ -43,7 +43,12 @@ final class AnalyticsResultDecoderTests: XCTestCase {
   func testDebugSuccess() {
     let jsonEncoder = JSONEncoder()
     let decoder = AnalyticsResultDecoder()
-    let validation = AnalyticsValidation(hitParsingResult: [AnalyticsHitParsingResult(valid: true, hit: String.random(), parserMessage: [AnalyticsHitParserMessage(messageType: .info, description: String.random())])])
+    let validation = AnalyticsValidation(
+      hitParsingResult: [AnalyticsHitParsingResult(
+        valid: true, hit: String.random(), parserMessage: [
+          AnalyticsHitParserMessage(messageType: .info, description: String.random())
+        ]
+      )])
     let data: Data
     do {
       data = try jsonEncoder.encode(validation)
