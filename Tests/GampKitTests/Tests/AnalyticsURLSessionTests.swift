@@ -1,5 +1,5 @@
 import Foundation
-@testable import GampKit
+import GampKit
 import XCTest
 
 #if canImport(FoundationNetworking)

@@ -6,11 +6,11 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
   /**
    The static configuration for the tracker.
    */
-  let configuration: AnalyticsConfigurationProtocol
+  public let configuration: AnalyticsConfigurationProtocol
   /**
    The session manager for sending data.
    */
-  let sessionManager: AnalyticsSessionManagerProtocol
+  public let sessionManager: AnalyticsSessionManagerProtocol
 
   /**
    Creates a tracker based on the configuration and session manager.

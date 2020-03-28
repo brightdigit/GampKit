@@ -1,4 +1,4 @@
-@testable import GampKit
+import GampKit
 import XCTest
 
 class AnalyticsURLsTests: XCTestCase {
