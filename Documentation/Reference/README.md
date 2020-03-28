@@ -10,6 +10,7 @@
 -   [AnalyticsTimingProtocol](protocols/AnalyticsTimingProtocol.md)
 -   [AnalyticsTrackable](protocols/AnalyticsTrackable.md)
 -   [AnalyticsTrackerProtocol](protocols/AnalyticsTrackerProtocol.md)
+-   [AnalyticsValidationHitProtocol](protocols/AnalyticsValidationHitProtocol.md)
 -   [AnalyticsValidationProtocol](protocols/AnalyticsValidationProtocol.md)
 -   [Request](protocols/Request.md)
 -   [Session](protocols/Session.md)
@@ -21,6 +22,9 @@
 -   [AnalyticsConfiguration](structs/AnalyticsConfiguration.md)
 -   [AnalyticsEvent](structs/AnalyticsEvent.md)
 -   [AnalyticsException](structs/AnalyticsException.md)
+-   [AnalyticsHitParserMessage](structs/AnalyticsHitParserMessage.md)
+-   [AnalyticsHitParsingResult](structs/AnalyticsHitParsingResult.md)
+-   [AnalyticsHitPath](structs/AnalyticsHitPath.md)
 -   [AnalyticsParameterEncoder](structs/AnalyticsParameterEncoder.md)
 -   [AnalyticsRequestBuilder](structs/AnalyticsRequestBuilder.md)
 -   [AnalyticsSessionManager](structs/AnalyticsSessionManager.md)
@@ -32,6 +36,7 @@
 
 ## Enums
 
+-   [AnalyticsHitParserMessageType](enums/AnalyticsHitParserMessageType.md)
 -   [AnalyticsHitType](enums/AnalyticsHitType.md)
 -   [AnalyticsParameterKey](enums/AnalyticsParameterKey.md)
 
