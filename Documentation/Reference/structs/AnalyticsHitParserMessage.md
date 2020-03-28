@@ -3,5 +3,5 @@
 # `AnalyticsHitParserMessage`
 
 ```swift
-public struct AnalyticsHitParserMessage
+public struct AnalyticsHitParserMessage: Codable
 ```

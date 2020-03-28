@@ -3,24 +3,24 @@
 # `AnalyticsHitParserMessageType`
 
 ```swift
-public enum AnalyticsHitParserMessageType
+public enum AnalyticsHitParserMessageType: String, Codable
 ```
 
 ## Cases
 ### `info`
 
 ```swift
-case info
+case info = "INFO"
 ```
 
 ### `warn`
 
 ```swift
-case warn
+case warn = "WARN"
 ```
 
 ### `error`
 
 ```swift
-case error
+case error = "ERROR"
 ```

@@ -3,10 +3,12 @@
 # `URLSession`
 
 ## Methods
-### `dataTask(with:_:)`
+### `dataTask(with:decodeWith:_:)`
 
 ```swift
-public func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
+public func dataTask(with request: URLRequest,
+                     decodeWith decoder: AnalyticsResultDecoderProtocol,
+                     _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
 ```
 
 #### Parameters
