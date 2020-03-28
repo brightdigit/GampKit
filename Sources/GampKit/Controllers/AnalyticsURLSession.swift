@@ -27,6 +27,8 @@ public struct AnalyticsURLSession: Session {
    */
   public let timeoutInterval: TimeInterval
 
+  public let resultDecoder: AnalyticsResultDecoderProtocol
+
   /**
    Creates the URL Session to use for analytics.
    - Parameters:
@@ -38,11 +40,13 @@ public struct AnalyticsURLSession: Session {
   public init(url: URL? = nil,
               cachePolicy: URLRequest.CachePolicy? = nil,
               session: URLSessionable? = nil,
-              timeoutInterval: TimeInterval? = nil) {
+              timeoutInterval: TimeInterval? = nil,
+              resultDecoder: AnalyticsResultDecoderProtocol? = nil) {
     self.url = url ?? AnalyticsURLs.default
     self.cachePolicy = cachePolicy ?? .useProtocolCachePolicy
     self.timeoutInterval = timeoutInterval ?? 5.0
     self.session = session ?? URLSession.shared
+    self.resultDecoder = resultDecoder ?? AnalyticsResultDecoder()
   }
 
   /**
@@ -61,6 +65,6 @@ public struct AnalyticsURLSession: Session {
      - completion: Callback to call when the request is finished.
    */
   public func begin(request: URLRequest, _ completion: @escaping ((AnalyticsResult) -> Void)) {
-    session.dataTask(with: request, completion).resume()
+    session.dataTask(with: request, decodeWith: resultDecoder, completion).resume()
   }
 }

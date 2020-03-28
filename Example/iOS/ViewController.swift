@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     applicationName: "GampKitDemo",
     applicationVersion: "1.0",
     clientIdentifier: UUID()
-  ))
+  ), debugMode: true)
 
   var startTiming: Date?
 

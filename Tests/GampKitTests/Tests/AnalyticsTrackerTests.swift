@@ -329,7 +329,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     for (debugMode, url) in debugModes {
       let tracker = AnalyticsTracker(configuration: config, debugMode: debugMode)
       guard let sessionManager = tracker.sessionManager as? AnalyticsSessionManager<AnalyticsURLSession> else {
-        XCTFail()
+        XCTFail("Invalid Session Manager")
         continue
       }
       XCTAssertEqual(sessionManager.session.url, url)

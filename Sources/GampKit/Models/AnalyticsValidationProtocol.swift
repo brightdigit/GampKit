@@ -1,32 +1,28 @@
+import Foundation
 public typealias AnalyticsResult = Result<AnalyticsValidation?, Error>
 
-//public protocol AnalyticsValidationHitProtocol {}
+// public protocol AnalyticsValidationHitProtocol {}
 
-public struct AnalyticsHitPath {
-  let method: String
-  let path: String
-  let scheme: String
+public enum AnalyticsHitParserMessageType: String, Codable {
+  case info = "INFO"
+  case warn = "WARN"
+  case error = "ERROR"
 }
 
-public enum AnalyticsHitParserMessageType {
-  case info
-  case warn
-  case error
-}
-
-public struct AnalyticsHitParserMessage {
+public struct AnalyticsHitParserMessage: Codable {
+  let messageCode: String?
   let messageType: AnalyticsHitParserMessageType
   let description: String
   let parameter: String?
 }
 
-public struct AnalyticsHitParsingResult {
+public struct AnalyticsHitParsingResult: Codable {
   let valid: Bool
-  let hit: AnalyticsHitPath
+  let hit: String
   let parserMessage: [AnalyticsHitParserMessage]
 }
 
-public struct AnalyticsValidation {
+public struct AnalyticsValidation: Codable {
   let hitParsingResult: [AnalyticsHitParsingResult]
 }
 

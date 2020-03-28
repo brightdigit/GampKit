@@ -12,5 +12,7 @@ public protocol URLSessionable {
    - Parameter completion: What to call when the call is completed.
    - Returns: The URLSession Task.
    */
-  func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
+  func dataTask(with request: URLRequest,
+                decodeWith decoder: AnalyticsResultDecoderProtocol,
+                _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
 }
