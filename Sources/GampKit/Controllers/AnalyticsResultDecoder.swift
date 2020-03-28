@@ -1,5 +1,7 @@
 import Foundation
 public struct AnalyticsResultDecoder: AnalyticsResultDecoderProtocol {
+  public init() {}
+
   public func decode(_ data: Data) -> AnalyticsResult {
     guard data.first == 123 else {
       return .success(nil)
