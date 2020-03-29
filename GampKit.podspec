@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "GampKit"
-  spec.version      = "0.0.1"
+  spec.version      = "0.1.0"
   spec.summary      = "Lorem Ipsum"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Lorem Description
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/brightdigit/GampKit.git", :tag => "0.0.1" }
+  spec.source       = { :git => "https://github.com/brightdigit/GampKit.git", :tag => "0.1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
