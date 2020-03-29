@@ -26,8 +26,23 @@ public class AnalyticsHitParserMessage: Codable, Equatable {
     self.parameter = parameter
   }
 
+  /**
+   Type of message.
+   */
   public let messageType: AnalyticsHitParserMessageType
+  
+  /**
+   Additional details or steps to fix the validation issue.
+   */
   public let description: String
+  
+  /**
+   The message code of the issue.
+   */
   public let messageCode: String?
+  
+  /**
+   The parameter (if applicable) causing the validation issue.
+   */
   public let parameter: String?
 }
