@@ -39,14 +39,21 @@ public let timeoutInterval: TimeInterval
 
 > Timeout for URLRequest.
 
+### `resultDecoder`
+
+```swift
+public let resultDecoder: AnalyticsResultDecoderProtocol
+```
+
 ## Methods
-### `init(url:cachePolicy:session:timeoutInterval:)`
+### `init(url:cachePolicy:session:timeoutInterval:resultDecoder:)`
 
 ```swift
 public init(url: URL? = nil,
             cachePolicy: URLRequest.CachePolicy? = nil,
             session: URLSessionable? = nil,
-            timeoutInterval: TimeInterval? = nil)
+            timeoutInterval: TimeInterval? = nil,
+            resultDecoder: AnalyticsResultDecoderProtocol? = nil)
 ```
 
 > Creates the URL Session to use for analytics.

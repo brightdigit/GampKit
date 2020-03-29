@@ -1,6 +1,4 @@
-public typealias AnalyticsResult = Result<AnalyticsValidationProtocol?, Error>
-
-public protocol AnalyticsValidationProtocol {}
+public typealias AnalyticsResult = Result<AnalyticsValidation?, Error>
 
 public extension AnalyticsResult {
   init(error: Error?) {

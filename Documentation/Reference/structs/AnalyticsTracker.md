@@ -8,6 +8,23 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol
 
 > Tracker for sending items to analytics.
 
+## Properties
+### `configuration`
+
+```swift
+public let configuration: AnalyticsConfigurationProtocol
+```
+
+> The static configuration for the tracker.
+
+### `sessionManager`
+
+```swift
+public let sessionManager: AnalyticsSessionManagerProtocol
+```
+
+> The session manager for sending data.
+
 ## Methods
 ### `init(configuration:sessionManager:)`
 

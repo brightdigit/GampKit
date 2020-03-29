@@ -6,6 +6,24 @@
 	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		B3C6667A2430204B0072A0ED /* all */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B3C6667D2430204B0072A0ED /* Build configuration list for PBXAggregateTarget "all" */;
+			buildPhases = (
+			);
+			dependencies = (
+				B3C6667F243020560072A0ED /* PBXTargetDependency */,
+				B3C66681243020560072A0ED /* PBXTargetDependency */,
+				B3C66683243020560072A0ED /* PBXTargetDependency */,
+				B3C66685243020560072A0ED /* PBXTargetDependency */,
+				B3C66687243020560072A0ED /* PBXTargetDependency */,
+			);
+			name = all;
+			productName = all;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		037AC35AF26E5F690D68AA66 /* iOS_Example.watchOS_Example.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5D12EE78D7685507BA4152D7 /* iOS_Example.watchOS_Example.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A9E5B6991A3C0DB56409AC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF1514474D72610760748B6 /* AppDelegate.swift */; };
@@ -36,6 +54,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 59DA5C91230B29D537DD0DF9;
 			remoteInfo = iOS_Example.watchOS_Example;
+		};
+		B3C6667E243020560072A0ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8E1E974698BC95958F017F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71052B6A66D141AB401C720D;
+			remoteInfo = iOS_Example;
+		};
+		B3C66680243020560072A0ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8E1E974698BC95958F017F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59DA5C91230B29D537DD0DF9;
+			remoteInfo = iOS_Example.watchOS_Example;
+		};
+		B3C66682243020560072A0ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8E1E974698BC95958F017F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5050BCBCAC6230C0B467CB;
+			remoteInfo = iOS_Example.watchOS_Example.watchOS_Example_Extension;
+		};
+		B3C66684243020560072A0ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8E1E974698BC95958F017F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A793A340BE0EEB00085E850C;
+			remoteInfo = macOS_Example;
+		};
+		B3C66686243020560072A0ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA8E1E974698BC95958F017F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4547BBC39FE469511D090927;
+			remoteInfo = tvOS_Example;
 		};
 		B3CCDCBBE391A611B3EE2867 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -354,6 +407,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					B3C6667A2430204B0072A0ED = {
+						CreatedOnToolsVersion = 11.4;
+					};
+				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -373,6 +431,7 @@
 				4A5050BCBCAC6230C0B467CB /* iOS_Example.watchOS_Example.watchOS_Example_Extension */,
 				A793A340BE0EEB00085E850C /* macOS_Example */,
 				4547BBC39FE469511D090927 /* tvOS_Example */,
+				B3C6667A2430204B0072A0ED /* all */,
 			);
 		};
 /* End PBXProject section */
@@ -651,6 +710,31 @@
 			target = 59DA5C91230B29D537DD0DF9 /* iOS_Example.watchOS_Example */;
 			targetProxy = A72314BC912FA8839F9ADE1B /* PBXContainerItemProxy */;
 		};
+		B3C6667F243020560072A0ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71052B6A66D141AB401C720D /* iOS_Example */;
+			targetProxy = B3C6667E243020560072A0ED /* PBXContainerItemProxy */;
+		};
+		B3C66681243020560072A0ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59DA5C91230B29D537DD0DF9 /* iOS_Example.watchOS_Example */;
+			targetProxy = B3C66680243020560072A0ED /* PBXContainerItemProxy */;
+		};
+		B3C66683243020560072A0ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A5050BCBCAC6230C0B467CB /* iOS_Example.watchOS_Example.watchOS_Example_Extension */;
+			targetProxy = B3C66682243020560072A0ED /* PBXContainerItemProxy */;
+		};
+		B3C66685243020560072A0ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A793A340BE0EEB00085E850C /* macOS_Example */;
+			targetProxy = B3C66684243020560072A0ED /* PBXContainerItemProxy */;
+		};
+		B3C66687243020560072A0ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4547BBC39FE469511D090927 /* tvOS_Example */;
+			targetProxy = B3C66686243020560072A0ED /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -821,6 +905,24 @@
 			};
 			name = Debug;
 		};
+		B3C6667B2430204B0072A0ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MLT7M394S7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B3C6667C2430204B0072A0ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MLT7M394S7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		CDA3AEEE35A7C5E75A03B183 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 143FF503BF82D4928307D008 /* Pods-macOS_Example.debug.xcconfig */;
@@ -981,6 +1083,15 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "";
+		};
+		B3C6667D2430204B0072A0ED /* Build configuration list for PBXAggregateTarget "all" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3C6667B2430204B0072A0ED /* Debug */,
+				B3C6667C2430204B0072A0ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		E6DF3213C1233334413B2F7F /* Build configuration list for PBXNativeTarget "iOS_Example.watchOS_Example" */ = {
 			isa = XCConfigurationList;

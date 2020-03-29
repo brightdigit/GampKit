@@ -9,10 +9,10 @@ public protocol URLSessionable
 > Abstraction for making URLRequests.
 
 ## Methods
-### `dataTask(with:_:)`
+### `dataTask(with:decodeWith:_:)`
 
 ```swift
-func dataTask(with request: URLRequest, _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
+func dataTask(with request: URLRequest,
 ```
 
 > Creates the URLRequestDataTask and calls resume.

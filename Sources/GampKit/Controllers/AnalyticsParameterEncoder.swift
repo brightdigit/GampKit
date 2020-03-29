@@ -4,6 +4,7 @@ import Foundation
  Encodes the parameters for use by the analytics tracker.
  */
 public struct AnalyticsParameterEncoder: AnalyticsParameterEncoderProtocol {
+  public init() {}
   /**
    Encodes the parameters for use by the analytics tracker.
 
