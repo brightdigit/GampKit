@@ -46,6 +46,7 @@
     static let __allTests__AnalyticsResultDecoderTests = [
       ("testDebugFailure", testDebugFailure),
       ("testDebugSuccess", testDebugSuccess),
+      ("testDecodeDataError", testDecodeDataError),
       ("testReleaseFailure", testReleaseFailure),
       ("testReleaseSuccess", testReleaseSuccess)
     ]

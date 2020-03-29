@@ -1,6 +1,17 @@
 import GampKit
 import XCTest
 
+extension AnalyticsResult {
+  var errorString: String? {
+    switch self {
+    case let .failure(error):
+      return (error as? MockError)?.description
+    default:
+      return nil
+    }
+  }
+}
+
 final class AnalyticsResultDecoderTests: XCTestCase {
   func testReleaseSuccess() {
     let decoder = AnalyticsResultDecoder()
@@ -68,6 +79,48 @@ final class AnalyticsResultDecoderTests: XCTestCase {
       XCTFail(error.localizedDescription)
     default:
       XCTFail("Invalid Result \(result)")
+    }
+  }
+
+  func testDecodeDataError() {
+    let emptyData = Data([70] + (0 ... 35).map { _ in UInt8.random(in: 0 ... UInt8.max) })
+    let error = MockError(description: String.random())
+    let realData: Data
+    let jsonEncoder = JSONEncoder()
+    let decoder = AnalyticsResultDecoder()
+    let validation = AnalyticsValidation(
+      hitParsingResult: [AnalyticsHitParsingResult(
+        valid: true,
+        hit: String.random(),
+        parserMessage: [AnalyticsHitParserMessage(
+          messageType: .info,
+          description: String.random()
+        )]
+      )])
+    do {
+      realData = try jsonEncoder.encode(validation)
+    } catch {
+      XCTFail(error.localizedDescription)
+      return
+    }
+
+    XCTAssertEqual(decoder.decode(nil, error).errorString, error.description)
+    XCTAssertEqual(decoder.decode(realData, error).errorString, error.description)
+    XCTAssertEqual(decoder.decode(emptyData, error).errorString, error.description)
+    XCTAssertEqual(try? decoder.decode(realData, nil).get(), validation)
+
+    do {
+      let optValidation = try decoder.decode(emptyData, nil).get()
+      XCTAssertNil(optValidation)
+    } catch {
+      XCTFail(error.localizedDescription)
+    }
+
+    do {
+      let optValidation = try decoder.decode(nil, nil).get()
+      XCTAssertNil(optValidation)
+    } catch {
+      XCTFail(error.localizedDescription)
     }
   }
 }

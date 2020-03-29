@@ -8,15 +8,7 @@ extension URLSession: URLSessionable {
                        decodeWith decoder: AnalyticsResultDecoderProtocol,
                        _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask {
     return dataTask(with: request) { data, _, error in
-      if let error = error {
-        completion(AnalyticsResult(error: error))
-        return
-      }
-      guard let data = data else {
-        completion(AnalyticsResult(error: error))
-        return
-      }
-      completion(decoder.decode(data))
+      completion(decoder.decode(data, error))
     }
   }
 }
