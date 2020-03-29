@@ -52,7 +52,7 @@ Included with this library is the ability to track:
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate GampKit into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'GampKit', '~> 0.0.1'
+pod 'GampKit', '~> 0.1.0'
 ```
 
 ### Swift Package Manager
@@ -63,7 +63,7 @@ Once you have your Swift package set up, adding GampKit as a dependency is as ea
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/brightdigit/GampKit.git", .upToNextMajor(from: "0.0.1"))
+    .package(url: "https://github.com/brightdigit/GampKit.git", .upToNextMajor(from: "0.1.0"))
 ]
 ```
 
