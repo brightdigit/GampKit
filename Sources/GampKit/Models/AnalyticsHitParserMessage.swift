@@ -30,17 +30,17 @@ public class AnalyticsHitParserMessage: Codable, Equatable {
    Type of message.
    */
   public let messageType: AnalyticsHitParserMessageType
-  
+
   /**
    Additional details or steps to fix the validation issue.
    */
   public let description: String
-  
+
   /**
    The message code of the issue.
    */
   public let messageCode: String?
-  
+
   /**
    The parameter (if applicable) causing the validation issue.
    */

@@ -6,9 +6,9 @@ public struct AnalyticsResultDecoder: AnalyticsResultDecoderProtocol {
   /**
    Used to check if the `Data` is in JSON format.
    */
-  
-  public static let leftBracket : UInt8 = 123
-  
+
+  public static let leftBracket: UInt8 = 123
+
   public init() {}
 
   /**
