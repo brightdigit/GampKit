@@ -6,6 +6,8 @@
 public enum AnalyticsHitParserMessageType: String, Codable, CaseIterable
 ```
 
+> The message type of each `AnalyticsHitParserMessage`.
+
 ## Cases
 ### `info`
 

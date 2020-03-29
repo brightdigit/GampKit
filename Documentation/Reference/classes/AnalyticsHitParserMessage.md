@@ -13,11 +13,15 @@ public class AnalyticsHitParserMessage: Codable, Equatable
 public let messageType: AnalyticsHitParserMessageType
 ```
 
+> Type of message.
+
 ### `description`
 
 ```swift
 public let description: String
 ```
+
+> Additional details or steps to fix the validation issue.
 
 ### `messageCode`
 
@@ -25,11 +29,15 @@ public let description: String
 public let messageCode: String?
 ```
 
+> The message code of the issue.
+
 ### `parameter`
 
 ```swift
 public let parameter: String?
 ```
+
+> The parameter (if applicable) causing the validation issue.
 
 ## Methods
 ### `==(_:_:)`
