@@ -49,6 +49,7 @@
 -   [AnalyticsEventProtocol](extensions/AnalyticsEventProtocol.md)
 -   [AnalyticsExceptionProtocol](extensions/AnalyticsExceptionProtocol.md)
 -   [AnalyticsResult](extensions/AnalyticsResult.md)
+-   [AnalyticsResultDecoderProtocol](extensions/AnalyticsResultDecoderProtocol.md)
 -   [AnalyticsTimingProtocol](extensions/AnalyticsTimingProtocol.md)
 -   [AnalyticsTrackerProtocol](extensions/AnalyticsTrackerProtocol.md)
 -   [NSException](extensions/NSException.md)
