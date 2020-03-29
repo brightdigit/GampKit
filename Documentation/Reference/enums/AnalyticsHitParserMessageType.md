@@ -3,7 +3,7 @@
 # `AnalyticsHitParserMessageType`
 
 ```swift
-public enum AnalyticsHitParserMessageType: String, Codable
+public enum AnalyticsHitParserMessageType: String, Codable, CaseIterable
 ```
 
 ## Cases
