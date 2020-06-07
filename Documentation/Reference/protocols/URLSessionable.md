@@ -13,6 +13,8 @@ public protocol URLSessionable
 
 ```swift
 func dataTask(with request: URLRequest,
+              decodeWith decoder: AnalyticsResultDecoderProtocol,
+              _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask
 ```
 
 > Creates the URLRequestDataTask and calls resume.

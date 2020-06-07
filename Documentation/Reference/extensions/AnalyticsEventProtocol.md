@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsEventProtocol`
+```swift
+extension AnalyticsEventProtocol
+```
 
 ## Properties
 ### `hitType`

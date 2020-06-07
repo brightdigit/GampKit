@@ -13,6 +13,9 @@ public protocol AnalyticsRequestBuilderProtocol
 
 ```swift
 func request<SessionType: Session, RequestType>(
+  forSession session: SessionType,
+  withParameters parameters: AnalyticsParameterDictionary
+) throws -> RequestType where SessionType.RequestType == RequestType
 ```
 
 > Builds a analytics request based on the session and parameters.

@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsResult`
+```swift
+public extension AnalyticsResult
+```
 
 ## Methods
 ### `init(error:)`
