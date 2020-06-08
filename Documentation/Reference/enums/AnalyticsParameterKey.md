@@ -10,5 +10,5 @@ public enum AnalyticsParameterKey: String, CaseIterable
 ### `hitType`
 
 ```swift
-case hitType = "t", version = "v", trackingId = "tid",
+case hitType = "t"
 ```

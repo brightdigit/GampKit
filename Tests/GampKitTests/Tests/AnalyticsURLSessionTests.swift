@@ -29,7 +29,7 @@ class MockURLSession: URLSessionable {
   }
 
   func dataTask(with _: URLRequest,
-                decodeWith decoder: AnalyticsResultDecoderProtocol,
+                decodeWith _: AnalyticsResultDecoderProtocol,
                 _ completion: @escaping (AnalyticsResult) -> Void) -> URLSessionableDataTask {
     let task = MockDataTask(error: error, completion: completion)
     lastTask = task

@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `NSException`
+```swift
+extension NSException: AnalyticsExceptionProtocol, Error
+```
 
 ## Properties
 ### `error`

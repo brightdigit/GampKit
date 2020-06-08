@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsResultDecoderProtocol`
+```swift
+public extension AnalyticsResultDecoderProtocol
+```
 
 ## Methods
 ### `decode(_:_:)`

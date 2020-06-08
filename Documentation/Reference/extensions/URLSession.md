@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `URLSession`
+```swift
+extension URLSession: URLSessionable
+```
 
 ## Methods
 ### `dataTask(with:decodeWith:_:)`

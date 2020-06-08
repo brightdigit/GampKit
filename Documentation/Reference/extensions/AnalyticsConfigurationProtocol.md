@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsConfigurationProtocol`
+```swift
+public extension AnalyticsConfigurationProtocol
+```
 
 ## Methods
 ### `parameters()`

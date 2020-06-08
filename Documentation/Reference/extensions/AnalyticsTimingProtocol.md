@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsTimingProtocol`
+```swift
+extension AnalyticsTimingProtocol
+```
 
 ## Properties
 ### `hitType`

@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsTrackerProtocol`
+```swift
+extension AnalyticsTrackerProtocol
+```
 
 ## Methods
 ### `track(error:isFatal:_:)`

@@ -1,6 +1,9 @@
 **EXTENSION**
 
 # `AnalyticsExceptionProtocol`
+```swift
+extension AnalyticsExceptionProtocol
+```
 
 ## Properties
 ### `hitType`
