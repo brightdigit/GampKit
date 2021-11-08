@@ -4,6 +4,7 @@ public enum AnalyticsParameterKey: String, CaseIterable {
     userTimingVariable = "utv",
     applicationName = "an", applicationVersion = "av", eventAction = "ea",
     eventCategory = "ec", eventLabel = "el", eventValue = "ev",
-    userLanguage = "ul", operatingSystemVersion = "cd1", model = "cd2",
+    userLanguage = "ul", customDimension1 = "cd1", customDimension2 = "cd2",
+   customDimension3 = "cd3", customDimension4 = "cd4",
     exceptionDescription = "exd", exceptionFatal = "exf"
 }
