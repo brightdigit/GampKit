@@ -2,6 +2,7 @@ import GampKit
 import XCTest
 
 final class AnalyticsParameterEncoderTests: XCTestCase {
+  // swiftlint:disable:next function_body_length
   func testEncode() {
     let encoder = AnalyticsParameterEncoder()
     let dictionary = AnalyticsParameterDictionary.random()
@@ -22,7 +23,9 @@ final class AnalyticsParameterEncoderTests: XCTestCase {
     }
 
     for pair in pairs {
-      guard let keyString = pair.first, let valueString = pair.last, pair.count == 2 else {
+      guard let keyString = pair.first,
+            let valueString = pair.last,
+            pair.count == 2 else {
         XCTFail("Invalid pair: \(pair)")
         continue
       }

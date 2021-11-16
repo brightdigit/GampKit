@@ -52,7 +52,7 @@ public extension AnalyticsConfigurationProtocol {
       dictionary[$0.0] = $0.1
     }
 
-    if let userLanguage = self.userLanguage {
+    if let userLanguage = userLanguage {
       dictionary[.userLanguage] = userLanguage
     }
 

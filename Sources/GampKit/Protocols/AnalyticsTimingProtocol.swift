@@ -24,16 +24,16 @@ public protocol AnalyticsTimingProtocol: AnalyticsTrackable {
 /**
  A timed event for tracking.
  */
-extension AnalyticsTimingProtocol {
+public extension AnalyticsTimingProtocol {
   /**
    Creates a parameter dictionary based on the properties of the value.
    */
-  public func parameters() -> AnalyticsParameterDictionary {
+  func parameters() -> AnalyticsParameterDictionary {
     var parameters = [AnalyticsParameterKey: Any]()
     parameters[.hitType] = hitType
     parameters[.userTimingCategory] = category
     parameters[.userTimingVariable] = variable
-    parameters[.timing] = Int(round(time * 1000.0))
+    parameters[.timing] = Int(round(time * 1_000.0))
 
     if let label = label {
       parameters[.userTimingLabel] = label
@@ -44,7 +44,7 @@ extension AnalyticsTimingProtocol {
   /**
    Hit type for analytics.
    */
-  public var hitType: AnalyticsHitType {
-    return .timing
+  var hitType: AnalyticsHitType {
+    .timing
   }
 }

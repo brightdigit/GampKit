@@ -25,7 +25,9 @@ public struct AnalyticsTracker: AnalyticsTrackerProtocol {
   /**
    Creates a tracker based on the configuration and session manager.
    - Parameter configuration: The static configuration for the tracker.
-   - Parameter debugMode: True, to use the validation server; False, use the actual tracking url; Nil, use the default server based on build.
+   - Parameter debugMode: True, to use the validation server;
+                          False, use the actual tracking url;
+                          Nil, use the default server based on build.
    */
   public init(configuration: AnalyticsConfigurationProtocol, debugMode: Bool?) {
     self.configuration = configuration

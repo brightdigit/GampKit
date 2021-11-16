@@ -134,7 +134,7 @@ public extension URL {
   }
 }
 
-public struct Randoms {
+public enum Randoms {
   //==========================================================================================================
 
   // MARK: - Object randoms

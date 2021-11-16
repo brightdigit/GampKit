@@ -6,6 +6,7 @@ extension AnalyticsResult {
     switch self {
     case let .failure(error):
       return (error as? MockError)?.description
+
     default:
       return nil
     }
@@ -20,8 +21,10 @@ final class AnalyticsResultDecoderTests: XCTestCase {
     switch result {
     case .success(.none):
       return
+
     case let .failure(error):
       XCTFail(error.localizedDescription)
+
     default:
       XCTFail("Invalid Result \(result)")
     }
@@ -34,6 +37,7 @@ final class AnalyticsResultDecoderTests: XCTestCase {
     switch result {
     case .failure:
       return
+
     default:
       XCTFail("Invalid Result \(result)")
     }
@@ -46,6 +50,7 @@ final class AnalyticsResultDecoderTests: XCTestCase {
     switch result {
     case .failure:
       return
+
     default:
       XCTFail("Invalid Result \(result)")
     }
@@ -75,13 +80,16 @@ final class AnalyticsResultDecoderTests: XCTestCase {
     switch result {
     case let .success(.some(actual)):
       XCTAssertEqual(validation, actual)
+
     case let .failure(error):
       XCTFail(error.localizedDescription)
+
     default:
       XCTFail("Invalid Result \(result)")
     }
   }
 
+  // swiftlint:disable:next function_body_length
   func testDecodeDataError() {
     let emptyData = Data([70] + (0 ... 35).map { _ in UInt8.random(in: 0 ... UInt8.max) })
     let error = MockError(description: String.random())

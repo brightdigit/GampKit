@@ -4,7 +4,7 @@ import GampKit
 struct MockSession: Session {
   let actualError: Error?
   func request() -> MockRequest {
-    return MockRequest(body: nil, actualError: actualError)
+    MockRequest(body: nil, actualError: actualError)
   }
 
   func begin(request: MockRequest, _ completion: @escaping ((AnalyticsResult) -> Void)) {

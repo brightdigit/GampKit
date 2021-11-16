@@ -2,6 +2,7 @@ import GampKit
 import XCTest
 
 final class AnalyticsTrackerTests: XCTestCase {
+  // swiftlint:disable:next function_body_length
   func testTime() {
     let trackExpectation = expectation(description: "track-time")
     let trackingIdentifier = String.random()
@@ -25,7 +26,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     tracker.track(time: time, withCategory: category, withVariable: variable, withLabel: label) { _ in
       trackExpectation.fulfill()
     }
-    waitForExpectations(timeout: 1000) { error in
+    waitForExpectations(timeout: 1_000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -38,7 +39,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       keys += 1
       XCTAssertEqual(applicationVersion, parameters[.applicationVersion] as? String)
       keys += 1
-      XCTAssertEqual(Int(round(time * 1000.0)), parameters[.timing] as? Int)
+      XCTAssertEqual(Int(round(time * 1_000.0)), parameters[.timing] as? Int)
       keys += 1
       XCTAssertEqual(category, parameters[.userTimingCategory] as? String)
       keys += 1
@@ -58,6 +59,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     }
   }
 
+  // swiftlint:disable:next function_body_length
   func testEvent() {
     let trackExpectation = expectation(description: "track-event")
     let trackingIdentifier = String.random()
@@ -81,7 +83,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     tracker.track(AnalyticsEvent(category: category, action: action, label: label, value: value)) { _ in
       trackExpectation.fulfill()
     }
-    waitForExpectations(timeout: 1000) { error in
+    waitForExpectations(timeout: 1_000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -114,6 +116,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     }
   }
 
+  // swiftlint:disable:next function_body_length
   func testError() {
     let trackExpectation = expectation(description: "track-error")
     let trackingIdentifier = String.random()
@@ -135,7 +138,7 @@ final class AnalyticsTrackerTests: XCTestCase {
       trackExpectation.fulfill()
     }
 
-    waitForExpectations(timeout: 1000) { error in
+    waitForExpectations(timeout: 1_000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -152,7 +155,10 @@ final class AnalyticsTrackerTests: XCTestCase {
       keys += 1
       XCTAssertEqual(exceptionDescription, parameters[.exceptionDescription] as? String)
       keys += 1
-      XCTAssertEqual(AnalyticsHitType.exception, parameters[.hitType] as? AnalyticsHitType)
+      XCTAssertEqual(
+        AnalyticsHitType.exception,
+        parameters[.hitType] as? AnalyticsHitType
+      )
       keys += 1
       XCTAssertEqual(clientIdentifier, parameters[.clientId] as? UUID)
       keys += 1
@@ -173,6 +179,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     .userLanguage
   ])
 
+  // swiftlint:disable:next function_body_length
   func testCustomTrackable() {
     let trackExpectation = expectation(description: "track-custom")
     let trackingIdentifier = String.random()
@@ -198,7 +205,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     tracker.track(MockTrackable(key: key, value: expectedValue)) { _ in
       trackExpectation.fulfill()
     }
-    waitForExpectations(timeout: 1000) { error in
+    waitForExpectations(timeout: 1_000) { error in
       XCTAssertNil(error)
       guard let parameters = sessionManager.lastParameters else {
         XCTFail("No parameters sent")
@@ -221,6 +228,7 @@ final class AnalyticsTrackerTests: XCTestCase {
     }
   }
 
+  // swiftlint:disable:next function_body_length
   func testException() {
     #if os(Linux)
 
@@ -253,7 +261,7 @@ final class AnalyticsTrackerTests: XCTestCase {
         trackExpectation.fulfill()
       }
 
-      waitForExpectations(timeout: 1000) { error in
+      waitForExpectations(timeout: 1_000) { error in
         XCTAssertNil(error)
         guard let parameters = sessionManager.lastParameters else {
           XCTFail("No parameters sent")
@@ -328,7 +336,8 @@ final class AnalyticsTrackerTests: XCTestCase {
 
     for (debugMode, url) in debugModes {
       let tracker = AnalyticsTracker(configuration: config, debugMode: debugMode)
-      guard let sessionManager = tracker.sessionManager as? AnalyticsSessionManager<AnalyticsURLSession> else {
+      guard let sessionManager = tracker.sessionManager as?
+        AnalyticsSessionManager<AnalyticsURLSession> else {
         XCTFail("Invalid Session Manager")
         continue
       }
