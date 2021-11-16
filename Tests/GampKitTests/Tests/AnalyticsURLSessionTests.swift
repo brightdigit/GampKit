@@ -37,11 +37,12 @@ class MockURLSession: URLSessionable {
   }
 
   var lastTaskCompleted: Bool {
-    return lastTask?.isCompleted ?? false
+    lastTask?.isCompleted ?? false
   }
 }
 
 final class AnalyticsURLSessionTests: XCTestCase {
+  // swiftlint:disable:next function_body_length
   func testInit() {
     let taskException = expectation(description: "urlsession-completed")
     var actualError: Error?
@@ -51,7 +52,12 @@ final class AnalyticsURLSessionTests: XCTestCase {
     let cachePolicy = URLRequest.CachePolicy(rawValue: UInt.random(in: range))!
     let timeoutInterval = TimeInterval.random()
     let mockSession = MockURLSession(error: expectedError)
-    let session = AnalyticsURLSession(url: url, cachePolicy: cachePolicy, session: mockSession, timeoutInterval: timeoutInterval)
+    let session = AnalyticsURLSession(
+      url: url,
+      cachePolicy: cachePolicy,
+      session: mockSession,
+      timeoutInterval: timeoutInterval
+    )
     var request = session.request()
     let uint8Range = (UInt8.min ... UInt8.max)
 
@@ -71,9 +77,12 @@ final class AnalyticsURLSessionTests: XCTestCase {
       }
       taskException.fulfill()
     }
-    waitForExpectations(timeout: 1000) { error in
+    waitForExpectations(timeout: 1_000) { error in
       XCTAssertNil(error)
-      XCTAssertEqual(expectedError?.localizedDescription, actualError?.localizedDescription)
+      XCTAssertEqual(
+        expectedError?.localizedDescription,
+        actualError?.localizedDescription
+      )
       XCTAssertTrue(mockSession.lastTaskCompleted)
     }
   }

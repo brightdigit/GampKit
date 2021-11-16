@@ -4,7 +4,7 @@ import GampKit
 class MockRequest: Request {
   var body: Data?
 
-  var sent: Bool = false
+  var sent = false
   var actualError: Error?
 
   init(body: Data?, actualError: Error?) {
