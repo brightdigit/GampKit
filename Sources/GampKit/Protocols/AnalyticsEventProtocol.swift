@@ -22,21 +22,21 @@ public protocol AnalyticsEventProtocol: AnalyticsTrackable {
   var value: Int? { get }
 }
 
-extension AnalyticsEventProtocol {
+public extension AnalyticsEventProtocol {
   /**
    Creates a parameter dictionary based on the properties of the value.
    */
-  public func parameters() -> AnalyticsParameterDictionary {
+  func parameters() -> AnalyticsParameterDictionary {
     var parameters = [AnalyticsParameterKey: Any]()
     parameters[.hitType] = hitType
     parameters[.eventCategory] = category
     parameters[.eventAction] = action
 
-    if let label = self.label {
+    if let label = label {
       parameters[.eventLabel] = label
     }
 
-    if let value = self.value {
+    if let value = value {
       parameters[.eventValue] = value
     }
     return parameters
@@ -45,7 +45,7 @@ extension AnalyticsEventProtocol {
   /**
    Hit type for analytics.
    */
-  public var hitType: AnalyticsHitType {
-    return .event
+  var hitType: AnalyticsHitType {
+    .event
   }
 }

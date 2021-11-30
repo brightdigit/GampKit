@@ -32,6 +32,11 @@ public class AnalyticsHitParserMessageBuilder {
   public var parameter: String?
 
   public func message() -> AnalyticsHitParserMessage {
-    return AnalyticsHitParserMessage(messageType: messageType, description: description, messageCode: messageCode, parameter: parameter)
+    AnalyticsHitParserMessage(
+      messageType: messageType,
+      description: description,
+      messageCode: messageCode,
+      parameter: parameter
+    )
   }
 }

@@ -3,7 +3,12 @@ import XCTest
 
 class AnalyticsHitParserMessageTests: XCTestCase {
   func testEquality() {
-    let lhs = AnalyticsHitParserMessage(messageType: .info, description: String.random(), messageCode: String.random(), parameter: String.random())
+    let lhs = AnalyticsHitParserMessage(
+      messageType: .info,
+      description: String.random(),
+      messageCode: String.random(),
+      parameter: String.random()
+    )
     let rhs = AnalyticsHitParserMessageBuilder(message: lhs).message()
     XCTAssertNotEqual(lhs, lhs.rand(\.description))
     XCTAssertNotEqual(lhs, lhs.rand(\.messageCode))

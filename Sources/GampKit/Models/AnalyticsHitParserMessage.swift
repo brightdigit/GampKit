@@ -19,7 +19,12 @@ public class AnalyticsHitParserMessage: Codable, Equatable {
     return true
   }
 
-  public init(messageType: AnalyticsHitParserMessageType, description: String, messageCode: String? = nil, parameter: String? = nil) {
+  public init(
+    messageType: AnalyticsHitParserMessageType,
+    description: String,
+    messageCode: String? = nil,
+    parameter: String? = nil
+  ) {
     self.messageType = messageType
     self.description = description
     self.messageCode = messageCode

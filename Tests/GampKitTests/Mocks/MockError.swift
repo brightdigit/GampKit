@@ -6,6 +6,6 @@ struct MockError: Error {
 
 extension MockError: LocalizedError {
   var errorDescription: String? {
-    return description
+    description
   }
 }

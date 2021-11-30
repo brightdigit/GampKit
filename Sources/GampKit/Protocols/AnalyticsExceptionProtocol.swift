@@ -13,11 +13,11 @@ public protocol AnalyticsExceptionProtocol: AnalyticsTrackable {
   var isFatal: Bool { get }
 }
 
-extension AnalyticsExceptionProtocol {
+public extension AnalyticsExceptionProtocol {
   /**
    Creates a parameter dictionary based on the properties of the value.
    */
-  public func parameters() -> AnalyticsParameterDictionary {
+  func parameters() -> AnalyticsParameterDictionary {
     var parameters = [AnalyticsParameterKey: Any]()
     parameters[.hitType] = hitType
     parameters[.exceptionDescription] = error.localizedDescription
@@ -28,7 +28,7 @@ extension AnalyticsExceptionProtocol {
   /**
    Hit type for analytics.
    */
-  public var hitType: AnalyticsHitType {
-    return .exception
+  var hitType: AnalyticsHitType {
+    .exception
   }
 }

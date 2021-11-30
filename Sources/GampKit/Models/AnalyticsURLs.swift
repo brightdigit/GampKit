@@ -15,11 +15,11 @@ public struct AnalyticsURLs {
   public static let debug = URL(string: "https://www.google-analytics.com/debug/collect")!
 }
 
-extension AnalyticsURLs {
+public extension AnalyticsURLs {
   /**
    Default Google Analytics URL.
    */
-  public static var `default`: URL {
+  static var `default`: URL {
     #if DEBUG
       return debug
     #else
