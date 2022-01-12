@@ -8,9 +8,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/brightdigit/GampKit)
 [![Beerpay](https://img.shields.io/beerpay/brightdigit/GampKit.svg)](https://beerpay.io/brightdigit/GampKit)
 
-[![macOS](https://github.com/brightdigit/GampKit/workflows/macOS/badge.svg)](https://github.com/brightdigit/GampKit/actions?query=workflow%3AmacOS)
-[![ubuntu](https://github.com/brightdigit/GampKit/workflows/ubuntu/badge.svg)](https://github.com/brightdigit/GampKit/actions?query=workflow%3Aubuntu)
-[![arm](https://github.com/brightdigit/EggSeed/workflows/arm/badge.svg)](https://github.com/brightdigit/EggSeed/actions?query=workflow%arm)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/brightdigit/GampKit/GampKit?label=Actions&logo=github)
 [![Travis (.com)](https://img.shields.io/travis/com/brightdigit/GampKit?logo=travis)](https://travis-ci.com/brightdigit/GampKit)
 [![CircleCI](https://img.shields.io/circleci/build/github/brightdigit/GampKit?label=xenial&logo=circleci&token=609e569b2dd9e85f571b788f67a857a1b7905773)](https://circleci.com/gh/brightdigit/GampKit)
 [![Bitrise](https://img.shields.io/bitrise/7b69b24b7c56684a?label=macOS&logo=bitrise&token=eOT7evPhInsR8U_JnSih_w)](https://app.bitrise.io/app/7b69b24b7c56684a)
